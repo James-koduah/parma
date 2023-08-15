@@ -45,3 +45,7 @@ As the application scales, the number of servers can increase. Database Replicat
 Other api’s will be added as needed
 
 ## User Stories
+As a Doctor I want to see which patients are currently assigned to me<br>
+As a nurse I want to see a patients medical history<br>
+As an Admin I want to be able to manage all my staff easily<br>
+
