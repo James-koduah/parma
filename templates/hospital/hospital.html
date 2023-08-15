@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/hos.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	    <title>Parma</title>
+    </head>
+    <body>
+	    <nav><h2>PARMA.</nav>
+	    <main>
+		    <div id='side'>
+			    <a href='/hospital/staff_register/{{hospital.public_id}}'><div></div></a>
+		    </div>
+		    <div id='dash'>
+			    <div class='item'></div>
+			    <div class='item'></div>
+			    <div class='item'></div>
+			    <div class='item'></div>
+		    </div>
+	    </main>
+	    <sub></sub>
+    </body>
+</html>

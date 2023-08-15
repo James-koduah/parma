@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='main.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	    <style>
+		body{
+			background: #fff;
+			color: #000;
+		}
+		main{
+			width: 100vw; height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		main h1{
+			font-size: 9em;
+			width: 100%;
+			height: fit-content;
+			text-align: center;
+		}
+		main p{
+			font-size: 5em;
+		}
+		span{
+			margin-top: 4vh;
+			font-size: 3em;
+		}
+	    </style>
+    </head>
+    <body>
+	    <main>
+		    {%if header%}<h1>{{header}}</h1>{%endif%}
+		    {%if content%}<p>{{content}}</p>{%endif%}
+		    {%if action%}<span>{{action}}</span>{%endif%}
+	    </main>
+	<script>
+		setTimeout(()=>{window.location.replace('/hospitals')}, 5000)
+	</script>
+    </body>
+</html>

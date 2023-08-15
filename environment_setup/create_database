@@ -1,0 +1,11 @@
+#Create the MySQL database The program will use
+#If you want to change anything about how the app will interact with the database
+#Visit the control_orm file where the app engine is defined and make the required changes there
+CREATE DATABASE IF NOT EXISTS parma;
+
+CREATE USER IF NOT EXISTS 'parma'@'%' IDENTIFIED BY 'parma';
+
+GRANT ALL PRIVILEGES ON parma.* TO 'parma'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+

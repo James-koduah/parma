@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#run the commands in the create_database file
+
+if [ $# -eq 2 ]; then
+	cat create_database | sudo mysql -u$1 -p$2
+else
+	echo 'Usage: ./run_create_database <mysql_user> <mysql_user_password>'
+fi
+

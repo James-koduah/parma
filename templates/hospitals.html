@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='all_hospitals/home.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	    <script defer src="{{url_for('static', filename='all_hospitals/app.js')}}"></script>
+	    <title>Parma</title>
+    </head>
+    <body>
+	    <nav>
+		    <h1>PARMA.</h1>
+		    <a href='/login_signup'></a>
+	    </nav>
+	    <main>
+		    <div id='search_box'>
+		    	<input id='search' contenteditable='true' oninput='search_match()'></input>
+			<button id='search_query' onclick='search_hospitals()'>Search</button>
+			<div id='search_matches'>
+			</div>
+		    </div>
+		    <div id='results'>
+		    </div>
+
+	    </main>
+	    <sub></sub>
+    </body>
+</html>
