@@ -20,28 +20,28 @@ Reduce patient wait time as most transactions can be automated.<br>
  Provide an easy access store for patients to order prescriptions(medicine)<br>
 This app will not:<br>
 Eliminate the need for in-person attendance<br>
-Provide remote consultation services for illness diagnoses 
-Our Targeted Users:
-Hospitals
-clinics
+Provide remote consultation services for illness diagnoses <br>
+Our Targeted Users:<br>
+Hospitals<br>
+clinics<br>
 
 ## Architecture
 This project is a web application.
 An overview of our application is a Database to store our data,a backend application to serve our data and a user interface.
-Server Architecture
-We will have a Load balancer that sends requests to several web servers.
+Server Architecture<br>
+We will have a Load balancer that sends requests to several web servers.<br>
 Each web server is going to connect to a remote database for information. This provides a horizontal scalability in the application
-Database Architecture
+Database Architecture<br>
 As the application scales, the number of servers can increase. Database Replication can share the reading and writing among different servers
 
 
 ## API’s and Methods
 
-‘/hospitals/search’ - Returns a filtered list of hospitals (Full information on the hospital) that match a query. The query can be filtered by name or location. The query is passed as json.
-‘/hospitals/search_match’ - Returns a list of hospitals that match a query. This is used in the search box, as the user is typing the matching results will be shown. The query is filtered by name.
-‘/hospital/staff’ - Returns a list of the staff of a hospital
-‘/patient/details’ - Get patient details
-‘/patient/record’ - Get patient records
+‘/hospitals/search’ - Returns a filtered list of hospitals (Full information on the hospital) that match a query. The query can be filtered by name or location. The query is passed as json.<br>
+‘/hospitals/search_match’ - Returns a list of hospitals that match a query. This is used in the search box, as the user is typing the matching results will be shown. The query is filtered by name.<br>
+‘/hospital/staff’ - Returns a list of the staff of a hospital<br>
+‘/patient/details’ - Get patient details<br>
+‘/patient/record’ - Get patient records<br>
 Other api’s will be added as needed
 
 ## User Stories
