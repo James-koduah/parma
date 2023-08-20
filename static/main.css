@@ -4,14 +4,11 @@
 }
 body{
 	width: 100vw;
-	height: 100vh;
-	background: #fcfcfc;
-	color: #000;
+	min-height: 100vh;
+	background: #2c2c2c;
+	color: #fcfcfc;
 	font-family: Oscine, sans-serif;
 	font-size: 5px;
-        background: url('resources/home.jpg') no-repeat;
-        background-size: 100% 100%;
-        background-attachment: fixed;
 }
 input:focus{
 	outline: 0px solid transparent;
@@ -31,7 +28,10 @@ nav{
 	justify-content: space-between;
         align-items: center;
 }
-nav h1{
-        font-size: 90%;
-	width: fit-content;
+#logo{
+        font-size: 4em;
+	color: #fff;
+}
+main{
+	margin-top: 8vh;
 }

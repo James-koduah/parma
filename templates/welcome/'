@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='welcome/welcome.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='welcome/create_hospital.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+	    <nav>
+		    <h1 id='logo'>PARMA.</h1>
+	    </nav>
+	    <main>
+		    <section id='welcome'>
+			    <div id='welcome_message'>
+				    <div id='welcome_text'>
+					    <h2>Parma. Your HealthCare System Manager</h2>
+					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+					    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
+					    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
+					    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
+					    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
+					    electrónicos, quedando esencialmente igual al original.
+					    </p>
+				    </div>
+			    </div>
+			    <div id='conversion_form'>
+				    <form id='sign_up_form'>
+				    </form>
+			    </div>
+		    </section>
+	    </main>
+	    <sub></sub>
+    </body>
+</html>

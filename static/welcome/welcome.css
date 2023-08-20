@@ -1,0 +1,180 @@
+#welcome{
+	width: 100vw;
+	height: 92vh;
+	display: flex;
+	justify-content: space-between;
+}
+
+#welcome_message{
+	width: 60%;
+	height: 100%;
+}
+#welcome_text{
+	width: 90%;
+	height: 80%;
+	margin: 10% 0 0 5%;
+}
+#welcome_text h2{
+	font-size: 9em;
+	margin-bottom: 1em;
+}
+#welcome_text p{
+	font-size: 3.5em;
+}
+#welcome_video{
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	margin-top: 0.5em;
+	cursor: pointer;
+}
+#welcome_video h3{
+	font-size: 5em;
+	font-weight: 700;
+	border-bottom: 1px #fff solid;
+}
+#welcome_video ion-icon{
+	font-size: 12em;
+}
+
+
+#conversion_form{
+	width: 40%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+#sign_up_form{
+	width: 95%;
+	height: 80%;
+	margin-top: 10%;
+	background: #fcfcfc;
+	color: #323032;
+	border: 1px gray solid;
+	border-radius: 2vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#sign_up_form h3{
+	width: fit-content;
+	font-size: 4em;
+	margin-top: 1em;
+}
+#header_quick{
+	width: 95%;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+#header_quick h4{
+	font-size: 3em;
+	width: 35%;
+	text-align: center;
+}
+.line{
+	width:35%;
+	height: 1px;
+	background: gray;
+}
+
+
+#google_signup{
+	width: 80%;
+	height: 30px;
+	border: 2px #000 solid;
+	background: blue;
+	color: #fff;
+	margin-top: 15px;
+	padding: 5px 0 5px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+#google_signup p{
+	font-size: 2.5em;
+	font-weight: 600;
+}
+#google_signup ion-icon{
+	font-size: 5em;
+}
+
+#email_signup_header{
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+}
+#email_signup{
+	width: 80%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+#email_signup input{
+	width: 100%;
+	height: 35px;
+	border: 2px #000 solid;
+	padding-left: 0.5em;
+	margin-bottom: 10px;
+}
+.fifty{width: 45% !important;}
+#password_info{
+	width: 100%;
+	height: 10px;
+	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	font-size: 2.4em;
+}
+#email_signup button{
+	width: 100%;
+	height: 35px;
+	border: 1px #000 solid;
+	background: gray;
+	font-size: 2.7em;
+	font-weight: 700;
+	color: #000;
+	margin-top: 20px;
+}
+@media (max-width: 550px){
+	#welcome{
+		height: fit-content;
+		flex-direction: column;
+		padding-bottom: 5vh;
+	}
+	#welcome_message{
+		width: 100%;
+		height: fit-content;
+		padding-bottom: 5vh;
+	}
+	#welcome_text{
+		margin-top: 30%;
+	}
+	#welcome_text h2{
+		font-size: 5em;
+		text-align: center;
+	}
+	#welcome_text p{
+		font-size: 2.8em;
+		text-align: center;
+	}
+	#welcome_video{
+		margin: 5vh auto 0 auto;
+	}
+
+
+	#conversion_form{
+		width: 100%;
+	}
+	#sign_up_form{
+		padding-bottom: 5vh;
+	}
+}

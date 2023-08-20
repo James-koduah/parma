@@ -15,7 +15,7 @@ app.register_blueprint(admin)
 
 @app.route('/')
 def welcome():
-    return render_template('welcome.html')
+    return render_template('welcome/welcome.html')
 
 @app.route('/login_signup')
 def login():
