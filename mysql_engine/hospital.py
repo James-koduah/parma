@@ -11,8 +11,9 @@ class Hospital(Base):
     id = Column(Integer, primary_key=True)
     public_id = Column(String(20), unique=True)
     name = Column(String(100))
-    location = Column(String(100))
-    about = Column(String(200))
+    address = Column(String(100))
+    country = Column(String(100))
+    staff = Column(Integer)
 
     def update(self, *args, **kwargs):
         for k, v in kwargs.items():

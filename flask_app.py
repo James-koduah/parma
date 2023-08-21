@@ -1,4 +1,4 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 
 def auth_user():
     """ function to authenticate users to access parts of the app"""
@@ -29,13 +29,12 @@ def welcome():
 def app_package():
     allow = auth_user()
     if allow == False:
-        print('kkks')
         return redirect('/')
     username = request.cookies.get('user_parma')
     user = control.make_query('User', 'username', username)
     return render_template('app_package/app_package.html', user=user)
 
-@app.route('/signup/', methods=['get', 'post'], strict_slashes=False)
+@app.route('/signup/', methods=['post'], strict_slashes=False)
 def signup():
     firstname = request.form.get('first_name').capitalize()
     lastname = request.form.get('last_name').capitalize()
