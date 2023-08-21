@@ -32,6 +32,10 @@ nav{
         font-size: 4em;
 	color: #fff;
 }
+#nav_profile{
+	font-size: 2.5em;
+	color: #fff;
+}
 main{
 	margin-top: 8vh;
 }

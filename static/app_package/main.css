@@ -1,0 +1,71 @@
+main{
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.package{
+	width: 30%;
+	height: 85%;
+	padding-top: 1%;
+	background: aliceblue;
+	color: #222;
+	border:1px #de470c solid;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.package h2{
+	width: 100%;
+	text-align: center;
+	font-size: 6em;
+	font-weight: 500;
+	margin-bottom: 2vh;
+}
+
+.benefits{
+	width: 90%;
+	height: 60%;
+}
+.benefits p{
+	font-size: 2.5em;
+	font-weight: 600;
+	text-align: center;	
+}
+.benefits ul{
+	margin-top: 20px;
+	width: 90%;
+}
+.benefits li{
+	font-size: 2.2em;
+	font-weight: 600;
+	color: #000;
+	margin-bottom: 10px;
+}
+.price{
+	width: 90%;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 5em;
+	font-weight: 600;
+}
+.price span{
+	font-size: 0.6em;
+}
+.start{
+	width: 95%;
+	height: 40px;
+	background: #de470c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.5em;
+	font-weight: 600;
+	cursor: pointer;
+}
+.start:hover{
+	background: #ee470c;
+}

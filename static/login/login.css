@@ -1,0 +1,91 @@
+main{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#board{
+	width: 40%;
+	height: 70%;
+	background: #fcfcfc;
+	color: #222;
+	border: 1px gray solid;
+	border-radius: 2vw;
+	display: flex;
+	flex-direction: column;
+        align-items: center;
+}
+#board h3{
+	width: fit-content;
+	font-size: 4em;
+	margin-top: 1em;
+}
+
+#google_login{
+	width: 80%;
+	height: 30px;
+	border: 2px #000 solid;
+	background: blue;
+	color: #fff;
+	margin-top: 15px;
+	padding: 5px 0 5px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#google_login p{
+	font-size: 2.5em;
+	font-weight: 600;
+}
+#google_login ion-icon{
+	font-size: 5em;
+	margin-right: 5%;
+}
+#login_form_header{
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+}
+
+#or{
+	width: 100%;
+	display: flex;
+	padding: 0px 0 10px 0;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.4em;
+	font-weight: 600;
+}
+
+#login_form{
+	width: 80%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+#login_form input{
+	width: 100%;
+	height: 35px;
+	border: 2px #000 solid;
+	padding-left: 0.5em;
+	margin-bottom: 10px;
+}
+#login_form button{
+	width: 100%;
+	height: 35px;
+	border: 1px #000 solid;
+	background: gray;
+	font-size: 2.7em;
+	font-weight: 700;
+	color: #000;
+	margin-top: 20px;
+	cursor: pointer;
+}

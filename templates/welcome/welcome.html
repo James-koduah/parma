@@ -11,6 +11,7 @@
     <body>
 	    <nav>
 		    <h1 id='logo'>PARMA.</h1>
+		    <a href='/login' id='login'>Login</a>
 	    </nav>
 	    <main>
 		    <section id='welcome'>
@@ -43,10 +44,12 @@
 						    <p>Sign Up With Google</p>
 					    </div>
 					    <div id='email_signup_header'>Or use your Email address</div>
-					    <form id='email_signup'>
+					    <form id='email_signup' action='/signup' method='POST'>
 						    <input name='first_name' placeholder='Your first name' class='fifty' required>
 						    <input name='last_name' placeholder='Your last name' class='fifty' required>
-						    <input name='email' placeholder='Your email address' type='email' required>
+						    <input name='username' placeholder='Your unique username' class='fifty' required>
+						    <input name='email' placeholder='Your email address' class='fifty' type='email' required>
+						    <p id='availability_info'></p>
 						    <input name='password' placeholder='Password' minlength='8' required>
 						    <p id='password_info'>Use at least 8 characters with one letter and one Numeral</p>
 						    <button type='submit'>Sign Up for Parma</button>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<HTML lang="en">
+	<HEAD>
+		<TITLE>HOME</TITLE>
+		<style>
+			body{
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				background: #000;
+				color: #fff;
+			}
+			h1{
+				font-size: 2vw;
+			}
+			p{
+				margin-top: 5vh;
+				font-size: 1vw;
+				cursor: pointer;
+				padding: 10px 50px 10px 50px;
+				border: 1px gray solid;
+			}
+		</style>
+	</HEAD>
+	<BODY>
+		<h1>{{message}}</h1>
+		<p onclick="go_back()">Go Back</p>
+		<script>
+			function go_back(){
+				window.history.back();
+			}
+		</script>
+	</BODY>
+</HTML>
+

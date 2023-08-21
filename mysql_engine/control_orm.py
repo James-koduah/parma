@@ -4,10 +4,11 @@ from datetime import datetime
 from sqlalchemy.orm import relationship, sessionmaker
 from mysql_engine.base import Base
 from mysql_engine.hospital import Hospital
+from mysql_engine.user import User
 
 class Control():
     """A class that provides an interface for easy usage of data from database"""
-    engine = create_engine("mysql+mysqldb://james:james@localhost/parma")
+    engine = create_engine("mysql+mysqldb://parma:parma@localhost/parma")
     session = None
 
     def start_session(self):
@@ -85,8 +86,12 @@ class Control():
         obj = None
         if filter_by == 'id':
             obj = self.session.query(table_name).filter_by(id=arg).first()
+        if filter_by == 'username':
+            obj = self.session.query(table_name).filter_by(username=arg).first()
         if filter_by == 'public_id':
             obj = self.session.query(table_name).filter_by(public_id=arg).first()
+        if filter_by == 'email':
+            obj = self.session.query(table_name).filter_by(email=arg).first()
         return obj
 
 
@@ -100,5 +105,13 @@ class Control():
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(length))
         return password	
+    
+
+    def auth_token(self, token, username):
+        user = self.make_query('User', 'username', username)
+        if user:
+            if user.login_token == token:
+                return True
+        return False
 
 control = Control()

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='app_package/main.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+	    <nav>
+		    <h1 id='logo'>PARMA.</h1>
+		    <h2 id='nav_profile'>{{user.name}}</h2>
+	    </nav>
+	    <main>
+		    <div class='package'>
+			    <h2>Free Plan</h2>
+			    <div class='benefits'>
+				    <p>This plan provides core functionaity and is suitable for small establishments</p>
+				    <ul>
+					    <li>Manage all Staff</li>
+					    <li>Manage Patient Records</li>
+					    <li>Manage Payment and Billing</li>
+					    <li>something something something something something anything</li>
+				    </ul>
+			    </div>
+			    <div class='price'>$0/<span>Year</span></div>
+			    <a href='/hospital/register' class='start'>Start</a>
+		    </div>
+		    <div class='package'>
+			    <h2>Mid Package</h2>
+			    <div class='benefits'>
+				    <p>This plan provides robust features and customization. Great for clincs and small hospitals</p>
+				    <ul>
+					    <li>Manage all Staff</li>
+					    <li>Manage Patient Records</li>
+					    <li>Manage Payment and Billing</li>
+					    <li>Manage Separate Branches</li>
+					    <li>Manage Staff working shifts</li>
+					    <li>something something something something something anything</li>
+				    </ul>
+			    </div>
+			    <div class='price'>$30/<span>Year</span></div>
+			    <a href='/hospital/register' class='start'>Start</a>
+		    </div>
+		    <div class='package'>
+			    <h2>Full-Range Plan</h2>
+			    <div class='benefits'>
+				    <p>This plan provides core functionaity and is suitable for small establishments</p>
+				    <ul>
+					    <li>Manage all Staff</li>
+					    <li>Manage Patient Records</li>
+					    <li>Manage Payment and Billing</li>
+					    <li>Manage Separate Branches</li>
+					    <li>Manage Staff working shifts</li>
+					    <li>Pharmacy and E-Store</li>
+					    <li>Payroll Management</li>
+					    <li>Offline Redundancy</li>
+					    <li>something something something something something anything</li>
+				    </ul>
+			    </div>
+			    <div class='price'>$100/<span>Year</span></div>
+			    <a href='/hospital/register' class='start'>Start</a>
+		    </div>
+	    </main>
+	    <section>
+	    </section>
+    </body>
+</html>

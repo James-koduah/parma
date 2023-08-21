@@ -1,3 +1,17 @@
+#login{
+	width: fit-content;
+	height: 60%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #00f;
+	color: #fff;
+	padding: 0 1em 0 1em;
+	font-size: 2.5em;
+	border: 1px #fff solid;
+	border-radius: 2vw;
+	cursor: pointer;
+}
 #welcome{
 	width: 100vw;
 	height: 92vh;
@@ -101,6 +115,7 @@
 }
 #google_signup ion-icon{
 	font-size: 5em;
+	margin-right: 5%;
 }
 
 #email_signup_header{
@@ -133,6 +148,16 @@
 	display: flex;
 	align-items: center;
 	font-size: 2.4em;
+}
+#availability_info{
+	width: 100%;
+	height: 10px;
+	color: #f00;
+	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	font-size: 2.4em;
+	display: none;
 }
 #email_signup button{
 	width: 100%;
