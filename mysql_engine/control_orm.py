@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship, sessionmaker
 from mysql_engine.base import Base
 from mysql_engine.hospital import Hospital
 from mysql_engine.user import User
+from mysql_engine.admin import Admin
 
 class Control():
     """A class that provides an interface for easy usage of data from database"""

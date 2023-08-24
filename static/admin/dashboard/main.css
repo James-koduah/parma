@@ -1,0 +1,69 @@
+main{
+	width: 100vw;
+	height: fit-content;
+	display: flex;
+	margin-top: 10vh;
+}
+#menu{
+	width: 30vw;
+	height: 90vh;
+	padding-top: 10vh;
+	background: #222;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+}
+.menu_item{
+	width: 65%;
+	padding-right: 5%;
+	height: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+.menu_item:hover{
+	background: #444;
+}
+.menu_item p{
+	font-size: 3em;
+	font-weight: 600;
+}
+#dashboard{
+	width: 70vw;
+	height: 100vh;
+	background: #444;
+}
+.dashboard_item{
+	width: 100%;
+	height: 100%;
+}
+#register_staff{
+	background: red;
+	display: none;
+}
+#staff_database{
+	background: blue;
+	display: none;
+}
+#patients_database{
+	background: green;
+	display: none;
+}
+#payments{
+	background: gold;
+	display: none;
+}
+#appointments{
+	background: silver;
+	display: none;
+}
+#statistics{
+	background: brown;
+}
+
+.active{
+	background: #eee;
+	color: #222;
+}

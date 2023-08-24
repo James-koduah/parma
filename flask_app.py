@@ -6,7 +6,11 @@ def auth_user():
     user_cookie = request.cookies.get('user_parma')
     if user_cookie: # Check if cookie exists
         allow_user = control.auth_token(auth_token, user_cookie)
-        return allow_user
+        if allow_user == False:
+            return allow_user
+        else:
+            user = control.make_query('User', 'username', user_cookie)
+            return user
     else: # if user_cookie dosen't exist
         return False
 
@@ -15,24 +19,16 @@ from flask_cors import CORS
 from mysql_engine.control_orm import control
 app = Flask(__name__)
 CORS(app)
-from sections.hospital import hospital
+from blueprints.product import product
+from blueprints.admin import admin
 
-app.register_blueprint(hospital)
-
-
+app.register_blueprint(product)
+app.register_blueprint(admin)
 
 @app.route('/')
 def welcome():
-    return render_template('welcome/welcome.html')
+    return render_template('basic/welcome/welcome.html')
 
-@app.route('/app_package', strict_slashes=False)
-def app_package():
-    allow = auth_user()
-    if allow == False:
-        return redirect('/')
-    username = request.cookies.get('user_parma')
-    user = control.make_query('User', 'username', username)
-    return render_template('app_package/app_package.html', user=user)
 
 @app.route('/signup/', methods=['post'], strict_slashes=False)
 def signup():
@@ -46,12 +42,12 @@ def signup():
     """Check if username already exists"""
     check = control.make_query('User', 'username', username)
     if check:
-        return render_template('error.html', message='Username Already in use')
+        return render_template('basic/error.html', message='Username Already in use')
 
     """Check if email already exists"""
     check = control.make_query('User', 'email', email)
     if check:
-        return render_template('error.html', message='Email Already in use')
+        return render_template('basic/error.html', message='Email Already in use')
 
     """Make a unique public id"""
     while True:
@@ -72,38 +68,13 @@ def signup():
             )
     control.add_item(user)
     control.commit_session()
-    response = make_response(redirect('/app_package'))
+    response = make_response(redirect('/product/package'))
     response.set_cookie('auth_parma', f'{user.login_token}')
     response.set_cookie('user_parma', f'{user.username}')
     return response
 
-@app.route('/login', methods=['get', 'post'], strict_slashes=False)
-def login():
-    if request.method == 'POST':
-        """Get Credentials"""
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
 
-        """If the user is logging in with username"""
-        if username != '':
-            user = control.make_query('User', 'username', username)
-            if user == None or user.password != password:
-                return render_template('error.html', message='Wrong Username')
-
-        """if the user is logging in with email"""
-        if email != '':
-            user = control.make_query('User', 'email', email)
-            if user == None or user.password != password:
-                return render_template('error.html', message='Wrong email')
-
-        response = make_response(redirect(f'/app_package'))#change redirect to approiate route
-        response.set_cookie('auth_parma', f'{user.login_token}')
-        response.set_cookie('user_parma', f'{user.username}')
-        return response
-    return render_template('login/login.html')
 
 if __name__ == '__main__':
     control.start_session()
     app.run(host='0.0.0.0', port=5000)
-
