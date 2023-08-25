@@ -16,7 +16,8 @@
 	    </nav>
 	    <main>
 		    <div id='menu'>
-			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='register_staff'><p>Register/Add Staff</p></div>
+			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='register_staff'><p>Register/Invite Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='confirm_staff'><p>Confirm Staff</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_database'><p>Staff Database</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='patients_database'><p>Patients Database</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='payments'><p>Payments</p></div>
@@ -29,6 +30,35 @@
 				    <div id='register_staff_explanation'>
 					    <p>If the person is signed into this app, You can use his/her username to invite him/her. You can also genearte a link to use.</p>
 				    </div>
+				    <div id='register_invite_form'>
+					    <div class='invite_form_item'>
+						    <p>Staff member Role</p>
+						    <div class='radio_elem'>
+							    <input type='radio' name='role' value='doctor' checked>
+							    <label for='doctor'>Doctor</label>
+						    </div>
+						    <div class='radio_elem'>
+							    <input type='radio' name='role' value='nurse'>
+							    <label for='nurse'>Nurse</label>
+						    </div>
+					    </div>
+					    <div class='invite_form_item'>
+						    <p>Description of staff's duties</p>
+						    <input id='invite_job_description' class='input_elem' name='job_description' placeholder='Job description' required>
+					    </div>
+				    </div>
+				    <div class='separator'></div>
+				    <div id='invite_channel'>
+					    <div style='margin-bottom: 0vh;' class='invite_form_item'>
+						    <p>Send registration form with username</p>
+						    <input id='invite_username' class='input_elem' name='invite_username' placeholder='Username' required>
+						    <button onclick='send_invite("{{hospital.public_id}}")' class='generate_link'>Send registration form</button>
+					    </div>
+					    <div class='separator'>OR</div>
+					    <div class='invite_form_item'>
+						    <button class='generate_link'>Genarate Link</button>
+					    </div>
+				    </div>
 			    </div>
 			    <div class='dashboard_item' id='staff_database'>
 				    {%for staff in hospital.staff%}
@@ -40,6 +70,7 @@
 				    </div>
 				    {%endfor%}
 			    </div>
+			    <div class='dashboard_item' id='confirm_staff'></div>
 			    <div class='dashboard_item' id='patients_database'></div>
 			    <div class='dashboard_item' id='payments'></div>
 			    <div class='dashboard_item' id='appointments'></div>

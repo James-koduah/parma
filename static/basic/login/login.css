@@ -98,3 +98,39 @@ main{
 		width: 90%;
 	}
 }
+
+.fifty{width: 45% !important;}
+#availability_info{
+	width: 100%;
+	height: 10px;
+	color: #f00;
+	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	font-size: 2.4em;
+	display: none;
+}
+#password_info{
+	width: 100%;
+	height: 10px;
+	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	font-size: 2.4em;
+}
+
+#to_other{
+	width: 100%;
+	height: 10px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.4em;
+	font-weight: 700;
+}
+
+#to_other:hover{
+	color: #e00;
+}

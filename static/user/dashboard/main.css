@@ -40,14 +40,6 @@ main{
 	height: 100%;
 }
 
-#hospitals{
-	background: gold;
-}
-#profile{
-	background: brown;
-}
-
-
 .active{
 	background: #eee;
 	color: #222;

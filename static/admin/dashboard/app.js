@@ -16,3 +16,28 @@ function display_dashboard(e){
 	}
 	e.classList.add('active')
 }
+
+
+
+function send_invite(hospital_id){
+	let role = document.querySelector('input[name="role"]:checked');
+	let job_description = document.getElementById('invite_job_description');
+	let invite_username = document.getElementById('invite_username');
+	let url = '/admin/invite_staff'
+	fetch(url, {
+		headers : {'Content-Type' : 'application/json'},
+		method : 'POST',
+		body : JSON.stringify({
+			"role": role.value,
+			"job_description": job_description.value,
+			"invite_username": invite_username.value,
+			"hospital_id": hospital_id
+		})
+	})
+	.then((response)=>{return response.json()})
+	.then((json)=>{
+		console.log(json['response'])
+		job_description.value=''
+		invite_username.value=''
+	})
+}

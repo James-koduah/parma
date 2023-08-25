@@ -14,20 +14,25 @@
 	    </nav>
 	    <main>
 		    <div id='board'>
-			    <h3>Login to your account</h3>
+			    <h3>Sign Up</h3>
 			    <div id='google_login'>
 				    <ion-icon name="logo-google"></ion-icon>
 				    <p>Sign Up With Google</p>
 			    </div>
-			    <div id='login_form_header'>Or use your credentials</div>
-			    <form id='login_form' action='/login' method='POST'>
-				    <input name='username' placeholder='Username'>
-				    <div id='or'>Or</div>
-				    <input name='email' placeholder='Email address' type='email' >
+			    <div id='login_form_header'>Or</div>					       	      
+			    <form id='login_form' action='/signup' method='POST'>
+				    <input name='first_name' placeholder='Your first name' class='fifty' required>
+				    <input name='last_name' placeholder='Your last name' class='fifty' required>
+				    <input name='username' placeholder='Your unique username' class='fifty' required>
+				    <input name='email' placeholder='Your email address' class='fifty' type='email' required>
+				    <p id='availability_info'></p>
 				    <input name='password' placeholder='Password' minlength='8' required>
-				    <button type='submit'>Login</button>
-				    <a id='to_other' href='/signup'>Don't Have an Account? SignUp</a>
+				    <p id='password_info'>Use at least 8 characters with one letter and one Numeral</p>
+				    <input name='average_user' value='true' style='display: none'>
+				    <button type='submit'>Sign Up for Parma</button>
+				    <a id='to_other' href='/login'>Already Have an Account? Login</a>
 			    </form>
+
 		    </div>
 	    </main>
 	    <sub></sub>

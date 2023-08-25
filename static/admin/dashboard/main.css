@@ -42,9 +42,6 @@ main{
 	background: #ddd;
 	display: none;
 }
-#register_staff{
-	display: block;
-}
 .active{
 	background: #eee;
 	color: #222;

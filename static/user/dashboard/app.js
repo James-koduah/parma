@@ -7,7 +7,7 @@ function display_dashboard(e){
 	current_dashboard.style.display = 'none'
 	let dashboard = e.dataset.dashboard
 	dashboard = document.getElementById(dashboard)
-	dashboard.style.display = 'block';
+	dashboard.style.display = 'flex';
 	current_dashboard = dashboard
 	
 	let menu_item = document.getElementsByClassName('menu_item')
