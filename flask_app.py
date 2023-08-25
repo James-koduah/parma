@@ -21,7 +21,9 @@ app = Flask(__name__)
 CORS(app)
 from blueprints.product import product
 from blueprints.admin import admin
+from blueprints.user import user
 
+app.register_blueprint(user)
 app.register_blueprint(product)
 app.register_blueprint(admin)
 
@@ -72,6 +74,33 @@ def signup():
     response.set_cookie('auth_parma', f'{user.login_token}')
     response.set_cookie('user_parma', f'{user.username}')
     return response
+
+
+@app.route('/login', methods=['get', 'post'], strict_slashes=False)
+def login():
+    if request.method == 'POST':
+        """Get Credentials"""
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        """If the user is logging in with username"""
+        if username != '':
+            user = control.make_query('User', 'username', username)
+            if user == None or user.password != password:
+                return render_template('error.html', message='Wrong Username')
+
+        """if the user is logging in with email"""
+        if email != '':
+            user = control.make_query('User', 'email', email)
+            if user == None or user.password != password:
+                return render_template('error.html', message='Wrong email')
+
+        response = make_response(redirect(f'/user'))#change redirect to approiate route
+        response.set_cookie('auth_parma', f'{user.login_token}')
+        response.set_cookie('user_parma', f'{user.username}')
+        return response
+    return render_template('basic/login/login.html')
 
 
 

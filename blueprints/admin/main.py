@@ -32,6 +32,14 @@ def hospital_register():
         control.add_item(admin)
         control.add_item(new_hospital)
         control.commit_session()
+        """Add the user to the hospital.
+           We can only get the hospital id after we have commited to the database
+        """
+        user_hospital = control.evaluate('Hospital_User')
+        hospital = control.make_query('Hospital', 'public_id', public_id)
+        user_hospital.update(user_id=user.id, hospital_id=hospital.id)
+        control.add_item(user_hospital)
+        control.commit_session()
         return redirect(f'/admin/dashboard/{public_id}')
 
     return render_template('admin/hospital_register/register.html', user=user)
@@ -43,6 +51,6 @@ def admin_dashboard(hospital_id):
     if user == False:
         return redirect('/')
     hospital = control.make_query('Hospital', 'public_id', hospital_id)
-    return render_template('admin/dashboard/dashboard.html', user=user)
+    return render_template('admin/dashboard/dashboard.html', user=user, hospital=hospital)
 
 

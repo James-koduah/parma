@@ -18,6 +18,7 @@ class User(Base):
     login_token = Column(String(20))
     created_on = Column(Date, default=datetime.utcnow, nullable=False)
     updated_on = Column(Date, default=datetime.utcnow, nullable=False)
+    hospitals = relationship('Hospital', secondary='user_hospital_junction', back_populates='staff', uselist=True)
 
 
     def update(self, *args, **kwargs):

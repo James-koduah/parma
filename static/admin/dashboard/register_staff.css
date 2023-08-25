@@ -1,0 +1,16 @@
+#register_staff{
+	display: flex;
+	flex-direction: column;
+}
+
+
+#register_staff_explanation{
+	width: 100%;
+	padding: 2em 1vw 2em 1vw;
+	height: fit-content;
+	background: black;
+}
+#register_staff_explanation p{
+	font-size: 2.5em;
+}
+
