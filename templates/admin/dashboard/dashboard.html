@@ -17,6 +17,7 @@
 	    <main>
 		    <div id='menu'>
 			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='register_staff'><p>Register/Invite Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='pending_staff_invites'><p>Pending Staff Invites</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='confirm_staff'><p>Confirm Staff</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_database'><p>Staff Database</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='patients_database'><p>Patients Database</p></div>
@@ -60,6 +61,8 @@
 					    </div>
 				    </div>
 			    </div>
+			    <div class='dashboard_item' id='pending_staff_invites'></div>
+			    <div class='dashboard_item' id='confirm_staff'></div>
 			    <div class='dashboard_item' id='staff_database'>
 				    {%for staff in hospital.staff%}
 				    <div class='hospital_staff'>
@@ -70,7 +73,6 @@
 				    </div>
 				    {%endfor%}
 			    </div>
-			    <div class='dashboard_item' id='confirm_staff'></div>
 			    <div class='dashboard_item' id='patients_database'></div>
 			    <div class='dashboard_item' id='payments'></div>
 			    <div class='dashboard_item' id='appointments'></div>

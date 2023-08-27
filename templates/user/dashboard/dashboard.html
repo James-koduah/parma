@@ -5,6 +5,7 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/hospital.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/staff_invite.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
@@ -17,15 +18,28 @@
 		    <div id='menu'>
 			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='hospitals'><p>Hospitals</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='profile'><p>Profile</p></div>
+			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_invite'><p>Staff Invite</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='hospitals'>
 				    {%for hospital in user.hospitals%}
 				    <a href='/hospital/{{hospital.public_id}}' class='hospital'>
+					    {{hospital.name}}
 				    </a>
 				    {%endfor%}
 			    </div>
 			    <div class='dashboard_item' id='profile'></div>
+			    <div class='dashboard_item' id='staff_invite'>
+				    {%for invite in staff_invites%}
+				    <div onclick='window.location.href="/hospital/{{invite.hospital_id}}/invite"' class='staff_invite'>
+					    <header>From: {{invite.hospital_name}}</header>
+					    <p>For the role of a {{invite.role}}</p>
+					    <p><strong>Job Description</strong></p>
+					    <p>{{invite.description}}</p>
+					    <p><strong>Status</strong>: {{invite.status}}</p>
+				    </div>
+				    {%endfor%}
+			    </div>
 		    </div>
 	    </main>
 	    <section>

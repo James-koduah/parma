@@ -103,6 +103,13 @@ class Control():
         obj = self.session.query(Admin).filter(and_(Admin.hospital_id==hospital_id, Admin.user_id==user_id)).first()
         return obj
 
+    def get_staff_invite(self, user_id):
+        """Get invites to a hospital of a user"""
+        objs = self.session.query(Invite_staff).filter(and_(Invite_staff.user_id==user_id, Invite_staff.status=='pending')).all()
+        for obj in objs:
+            invite_hospital = self.make_query('Hospital', 'public_id', obj.hospital_id)
+            obj.update(hospital_name=invite_hospital.name)
+        return objs
 
 
     def create_token(self, length):
