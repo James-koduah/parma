@@ -15,4 +15,5 @@ sudo pip3 install Flask
 sudo pip install flask-socketio
 sudo pip install -U flask-cors
 sudo pip install eventlet
+pip install bcrypt
 
