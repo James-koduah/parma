@@ -26,7 +26,7 @@ class User(Base):
     #Method to update user info all at once
     def update(self, **kwargs):
         #defining a set of allowed attribute names that can be updated
-        alowed_attributes = {'public_id', 'profile_pic', 'username', 'position'}
+        allowed_attributes = {'public_id', 'profile_pic', 'username', 'position'}
         for attr_name, attr_value in kwargs.items():
             if attr_name in allowed_attributes:
                 setattr(self, attr_name, attr_value)
