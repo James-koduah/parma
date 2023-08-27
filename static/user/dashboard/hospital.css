@@ -1,0 +1,18 @@
+#hospitals{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding: 4vh 2vw 4vh 2vw;
+}
+
+
+.hospital{
+	width: 130px;
+	height: 150px;
+	background: black;
+	border-radius: 1vw;
+	overflow: hidden;
+	margin-left: 5%;
+	cursor: pointer;
+}
+

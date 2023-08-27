@@ -203,3 +203,16 @@
 		padding-bottom: 5vh;
 	}
 }
+
+#normal_signup{
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+	font-weight: 600;
+	background: #221d1d;
+	margin-top: 30px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='basic/login/login.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	    <title>Parma</title>
+    </head>
+    <body>
+	    <nav>
+		    <h1>PARMA.</h1>
+	    </nav>
+	    <main>
+		    <div id='board'>
+			    <h3>Sign Up</h3>
+			    <div id='google_login'>
+				    <ion-icon name="logo-google"></ion-icon>
+				    <p>Sign Up With Google</p>
+			    </div>
+			    <div id='login_form_header'>Or</div>					       	      
+			    <form id='login_form' action='/signup' method='POST'>
+				    <input name='first_name' placeholder='Your first name' class='fifty' required>
+				    <input name='last_name' placeholder='Your last name' class='fifty' required>
+				    <input name='username' placeholder='Your unique username' class='fifty' required>
+				    <input name='email' placeholder='Your email address' class='fifty' type='email' required>
+				    <p id='availability_info'></p>
+				    <input name='password' placeholder='Password' minlength='8' required>
+				    <p id='password_info'>Use at least 8 characters with one letter and one Numeral</p>
+				    <input name='average_user' value='true' style='display: none'>
+				    <button type='submit'>Sign Up for Parma</button>
+				    <a id='to_other' href='/login'>Already Have an Account? Login</a>
+			    </form>
+
+		    </div>
+	    </main>
+	    <sub></sub>
+    </body>
+</html>

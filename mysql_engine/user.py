@@ -21,6 +21,7 @@ class User(Base):
     login_token = Column(LOGIN_TOKEN_LENGTH)
     created_on = Column(Date, default=datetime.utcnow, nullable=False)
     updated_on = Column(Date, default=datetime.utcnow, nullable=False)
+    hospitals = relationship('Hospital', secondary='user_hospital_junction', back_populates='staff', uselist=True)
 
     #Method to update user info all at once
     def update(self, **kwargs):

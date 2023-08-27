@@ -1,0 +1,104 @@
+#register_staff{
+	display: flex;
+	flex-direction: column;
+	align-items: center
+}
+
+
+#register_staff_explanation{
+	width: 100%;
+	padding: 2em 1vw 2em 1vw;
+	height: fit-content;
+	background: black;
+	margin-bottom:3vh;
+}
+#register_staff_explanation p{
+	font-size: 2.5em;
+}
+
+#register_invite_form{
+	width: 75%;
+	height: fit-content;
+	background: #fff;
+	padding: 4vh 0 4vh 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.invite_form_item{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	color: #000;
+	margin-bottom: 20px;
+}
+.invite_form_item p{
+	width: 100%;
+	margin-bottom: 5px;
+	font-size: 2.3em;
+}
+.input_elem{
+	width: 100%;
+	height: 35px;
+	padding-left: 2%;
+	border: 1px #111 solid;
+}
+.radio_elem{
+	width: 100px;
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5px;
+	margin-left: 10%
+}
+.radio_elem label{
+	font-size: 2.2em;
+	font-weight: 700;
+}
+
+.separator{
+	width: 50px;
+	height: 60px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	font-size: 2.5em;
+	color: #000;
+}
+
+.invite_button{
+	width: fit-content;
+	height: fit-content;
+	padding: 10px 0 10px 0;
+	background: #4c4;
+	text-align: center;
+	cursor: pointer;
+}
+.invite_button:hover{
+	background: #4d4;
+}
+
+.generate_link{
+	width: 100%;
+	height: fit-content;
+	padding: 10px 0 10px 0;
+	background: #4c4;
+	text-align: center;
+	cursor: pointer;
+}
+.generate_link:hover{
+	background: #4d4;
+}
+
+#invite_channel{
+	width: 75%;
+	height: fit-content;
+	background: #fff;
+	padding: 4vh 0 4vh 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

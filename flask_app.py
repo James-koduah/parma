@@ -21,23 +21,30 @@ app = Flask(__name__)
 CORS(app)
 from blueprints.product import product
 from blueprints.admin import admin
+from blueprints.user import user
+from blueprints.hospital import hospital
 
 app.register_blueprint(product)
 app.register_blueprint(admin)
+app.register_blueprint(user)
+app.register_blueprint(hospital)
 
 @app.route('/')
 def welcome():
     return render_template('basic/welcome/welcome.html')
 
 
-@app.route('/signup/', methods=['post'], strict_slashes=False)
+@app.route('/signup/', methods=['post', 'get'], strict_slashes=False)
 def signup():
+    if request.method == 'GET':
+        return render_template('basic/login/signup.html')
     firstname = request.form.get('first_name').capitalize()
     lastname = request.form.get('last_name').capitalize()
     name = f'{firstname} {lastname}'
     username = request.form.get('username')
     email = request.form.get('email')
     password = request.form.get('password')
+    average_user = request.form.get('average_user')
 
     """Check if username already exists"""
     check = control.make_query('User', 'username', username)
@@ -68,10 +75,40 @@ def signup():
             )
     control.add_item(user)
     control.commit_session()
-    response = make_response(redirect('/product/package'))
+    if average_user:
+        response = make_response(redirect(f'/user/{user.username}'))
+    else:
+        response = make_response(redirect('/product/package'))
     response.set_cookie('auth_parma', f'{user.login_token}')
     response.set_cookie('user_parma', f'{user.username}')
     return response
+
+
+@app.route('/login', methods=['get', 'post'], strict_slashes=False)
+def login():
+    if request.method == 'POST':
+        """Get Credentials"""
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        """If the user is logging in with username"""
+        if username != '':
+            user = control.make_query('User', 'username', username)
+            if user == None or user.password != password:
+                return render_template('basic/error.html', message='Wrong Username')
+
+        """if the user is logging in with email"""
+        if email != '':
+            user = control.make_query('User', 'email', email)
+            if user == None or user.password != password:
+                return render_template('basic/error.html', message='Wrong email')
+
+        response = make_response(redirect(f'/user/{user.username}'))#change redirect to approiate route
+        response.set_cookie('auth_parma', f'{user.login_token}')
+        response.set_cookie('user_parma', f'{user.username}')
+        return response
+    return render_template('basic/login/login.html')
 
 
 

@@ -6,6 +6,9 @@ from mysql_engine.base import Base
 from mysql_engine.hospital import Hospital
 from mysql_engine.user import User
 from mysql_engine.admin import Admin
+from mysql_engine.junction_tables import Hospital_User
+from mysql_engine.invite_staff import Invite_staff
+
 
 class Control():
     """A class that provides an interface for easy usage of data from database"""
@@ -93,6 +96,11 @@ class Control():
             obj = self.session.query(table_name).filter_by(public_id=arg).first()
         if filter_by == 'email':
             obj = self.session.query(table_name).filter_by(email=arg).first()
+        return obj
+
+    def check_admin_status(self, hospital_id, user_id):
+        """Check if the user is an admin in a particular hospital"""
+        obj = self.session.query(Admin).filter(and_(Admin.hospital_id==hospital_id, Admin.user_id==user_id)).first()
         return obj
 
 
