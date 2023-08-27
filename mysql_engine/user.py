@@ -4,21 +4,20 @@ from sqlalchemy import Column, Integer, String, UniqueConstraint, Date, Text
 from datetime import datetime
 from sqlalchemy.orm import relationship
 from mysql_engine.base import Base
-from constants import USERNAME_LENGTH, EMAIL_LENGTH, PROFILE_PIC_LENGTH, PUBLIC_ID_LENGTH, PASSWORD_LENGTH, POSITION_LENGTH, LOGIN_TOKEN_LENGTH
+from mysql_engine.constants import USERNAME_LENGTH, EMAIL_LENGTH, PROFILE_PIC_LENGTH, PUBLIC_ID_LENGTH, PASSWORD_LENGTH, POSITION_LENGTH, LOGIN_TOKEN_LENGTH
 
 class User(Base):
     """An orm representation of a user"""
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
-    public_id = Column(PUBLIC_ID_LENGTH, unique=True)
-    profile_pic = Column(PROFILE_PIC_LENGTH,)
+    public_id = Column(String(PUBLIC_ID_LENGTH), unique=True)
+    profile_pic = Column(String(PROFILE_PIC_LENGTH))
     name = Column(String(100))
-    username = Column(USERNAME_LENGTH, unique=True)
-    email = Column(EMAIL_LENGTH, unique=True)
-    password = Column(PASSWORD_LENGTH)
-    position = Column(POSITION_LENGTH)
-    login_token = Column(LOGIN_TOKEN_LENGTH)
+    username = Column(String(USERNAME_LENGTH), unique=True)
+    email = Column(String(EMAIL_LENGTH), unique=True)
+    password = Column(String(PASSWORD_LENGTH))
+    login_token = Column(String(LOGIN_TOKEN_LENGTH))
     created_on = Column(Date, default=datetime.utcnow, nullable=False)
     updated_on = Column(Date, default=datetime.utcnow, nullable=False)
     hospitals = relationship('Hospital', secondary='user_hospital_junction', back_populates='staff', uselist=True)
