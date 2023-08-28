@@ -33,14 +33,15 @@ main{
 }
 #dashboard{
 	width: 70vw;
-	height: 100vh;
+	height: 90vh;
 	background: #eee;
 }
 .dashboard_item{
 	width: 100%;
 	height: 100%;
-	background: #ddd;
+	background: #262326;
 	display: none;
+	overflow-y: auto;
 }
 .active{
 	background: #eee;

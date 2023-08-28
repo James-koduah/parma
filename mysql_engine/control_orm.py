@@ -6,7 +6,7 @@ from mysql_engine.base import Base
 from mysql_engine.hospital import Hospital
 from mysql_engine.user import User
 from mysql_engine.admin import Admin
-from mysql_engine.junction_tables import Hospital_User
+from mysql_engine.junction_tables import Hospital_staff
 from mysql_engine.invite_staff import Invite_staff
 
 
@@ -103,14 +103,15 @@ class Control():
         obj = self.session.query(Admin).filter(and_(Admin.hospital_id==hospital_id, Admin.user_id==user_id)).first()
         return obj
 
-    def get_staff_invite(self, user_id):
+    def get_staff_invite_user(self, user_id, status):
         """Get invites to a hospital of a user"""
-        objs = self.session.query(Invite_staff).filter(and_(Invite_staff.user_id==user_id, Invite_staff.status=='pending')).all()
-        for obj in objs:
-            invite_hospital = self.make_query('Hospital', 'public_id', obj.hospital_id)
-            obj.update(hospital_name=invite_hospital.name)
+        objs = self.session.query(Invite_staff).filter(and_(Invite_staff.user_id==user_id, Invite_staff.status==status)).all()
         return objs
 
+    def get_staff_invite_hospital(self, hospital_id, status):
+        """Get all Staff invites sent by a hospital"""
+        objs = self.session.query(Invite_staff).filter(and_(Invite_staff.hospital_id==hospital_id, Invite_staff.status==status)).all()
+        return objs
 
     def create_token(self, length):
         """Create a random token or password

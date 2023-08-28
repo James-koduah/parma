@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/invite/main.css') }}>
+	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+	    <nav>
+		    <h1 id='logo' style='cursor: pointer' onclick='window.location.reload(true)'>PARMA.</h1>
+		    <h2 id='nav_profile'>{{user.name}}</h2>
+	    </nav>
+	    <main>
+		    <div id='board'>
+			    <p>Hello {{user.name}}, You have been invited by {{invite.hospital_name}} for the role of a 
+				    <strong>{{invite.role}}</strong>.
+			    </p>
+			    <p>Your duties are:<br>{{invite.description}}</p>
+			    <p><br><br>Please Enter Your Details</p>
+			    <form action='/hospital/accept_invite/{{invite.public_id}}' method='POST'>
+				    <input name='bank_account_number' placeholder='Bank Account Number' required>
+				    <input name='adress' placeholder='Address' required>
+				    <button type='submit'>Submit</button>
+			    </form>
+		    </div>
+	    </main>
+	    <section>
+	    </section>
+    </body>
+</html>

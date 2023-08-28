@@ -31,7 +31,7 @@
 			    <div class='dashboard_item' id='profile'></div>
 			    <div class='dashboard_item' id='staff_invite'>
 				    {%for invite in staff_invites%}
-				    <div onclick='window.location.href="/hospital/{{invite.hospital_id}}/invite"' class='staff_invite'>
+				    <div onclick='window.location.href="/hospital/{{invite.hospital_id}}/invite/{{invite.public_id}}"' class='staff_invite'>
 					    <header>From: {{invite.hospital_name}}</header>
 					    <p>For the role of a {{invite.role}}</p>
 					    <p><strong>Job Description</strong></p>

@@ -39,5 +39,21 @@ function send_invite(hospital_id){
 		console.log(json['response'])
 		job_description.value=''
 		invite_username.value=''
+		window.location.reload(true)
+	})
+}
+
+
+function confirm_staff(invite_id){
+	let url='/admin/confirm_staff_invite'
+	fetch(url, {
+		headers : {'Content-Type' : 'application/json'},
+		method : 'POST',
+		body : JSON.stringify({"invite_id": invite_id})
+	})
+	.then((res)=>{return res.json()})
+	.then((json)=>{
+		console.log(json['response'])
+		window.location.reload(true)
 	})
 }

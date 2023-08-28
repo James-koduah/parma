@@ -1,0 +1,29 @@
+#pending_staff_invites{
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding: 3vh 0 2vh 20px;
+}
+
+.pending_staff{
+	width: 90%;
+ 	min-height: 40px;
+	height: fit-content;
+	background: #fff;
+	color: #222;
+	padding: 4px 5px 4px 5px;
+	margin-bottom: 30px;
+	border: 1px #fff solid;
+	cursor: pointer;
+}
+.pending_staff p{
+	font-size: 2.5em;
+}
+
+.pending_staff_more{
+	width: 100%;
+	text-align: center;
+	padding: 10px 0 10px 0;
+}
+.pending_staff_more:hover{
+	color: red;
+}

@@ -6,6 +6,8 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/register_staff.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/staff_database.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/pending_staff_invites.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/confirm_staff.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
@@ -35,11 +37,11 @@
 					    <div class='invite_form_item'>
 						    <p>Staff member Role</p>
 						    <div class='radio_elem'>
-							    <input type='radio' name='role' value='doctor' checked>
+							    <input type='radio' name='role' value='Doctor' checked>
 							    <label for='doctor'>Doctor</label>
 						    </div>
 						    <div class='radio_elem'>
-							    <input type='radio' name='role' value='nurse'>
+							    <input type='radio' name='role' value='Nurse'>
 							    <label for='nurse'>Nurse</label>
 						    </div>
 					    </div>
@@ -61,8 +63,29 @@
 					    </div>
 				    </div>
 			    </div>
-			    <div class='dashboard_item' id='pending_staff_invites'></div>
-			    <div class='dashboard_item' id='confirm_staff'></div>
+			    <div class='dashboard_item' id='pending_staff_invites'>
+				    {%for invite in pending_invites%}
+				    <div class='confirm_staff'>
+					    <p>This invite was sent to <strong>{{invite.user_name}}</strong></p>
+					    <p>For the role: <strong>{{invite.role}}</strong></p>
+					    <p>Job Description: <strong>{{invite.description}}</strong></p>
+					    <p>Sent on: {{invite.created_on}}</p>
+					    <p class='confirm_staff_more'>click for more details</p>
+				    </div>
+				    {%endfor%}
+			    </div>
+			    <div class='dashboard_item' id='confirm_staff'>
+				    {%for invite in confirm_invites%}
+				    <div class='confirm_staff'>
+					    <p>This invite was sent to <strong>{{invite.user_name}}</strong></p>
+					    <p>For the role: <strong>{{invite.role}}</strong></p>
+					    <p>Job Description: <strong>{{invite.description}}</strong></p>
+					    <p>Sent on: {{invite.created_on}}</p>
+					    <p class='confirm_staff_more'>click for more details</p>
+					    <button onclick='confirm_staff("{{invite.public_id}}")'>Confirm Staff</button>
+				    </div>
+				    {%endfor%}
+			    </div>
 			    <div class='dashboard_item' id='staff_database'>
 				    {%for staff in hospital.staff%}
 				    <div class='hospital_staff'>

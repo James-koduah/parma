@@ -9,7 +9,9 @@ class Invite_staff(Base):
 
     id = Column(Integer, primary_key=True)
     public_id = Column(String(30), unique=True)
+    hospital_name = Column(String(100))
     hospital_id = Column(String(20))
+    user_name = Column(String(100))
     user_id = Column(String(20))
     role = Column(String(30))
     description = Column(Text())

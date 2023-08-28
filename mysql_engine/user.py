@@ -20,12 +20,12 @@ class User(Base):
     login_token = Column(String(LOGIN_TOKEN_LENGTH))
     created_on = Column(Date, default=datetime.utcnow, nullable=False)
     updated_on = Column(Date, default=datetime.utcnow, nullable=False)
-    hospitals = relationship('Hospital', secondary='user_hospital_junction', back_populates='staff', uselist=True)
+    hospitals = relationship('Hospital', secondary='hospital_staff', back_populates='staff', uselist=True)
 
     #Method to update user info all at once
     def update(self, **kwargs):
         #defining a set of allowed attribute names that can be updated
-        allowed_attributes = {'public_id', 'profile_pic', 'username', 'position'}
+        allowed_attributes = {'public_id', 'profile_pic','name', 'username', 'email', 'password', 'login_token', 'role'}
         for attr_name, attr_value in kwargs.items():
             if attr_name in allowed_attributes:
                 setattr(self, attr_name, attr_value)

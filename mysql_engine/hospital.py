@@ -15,7 +15,7 @@ class Hospital(Base):
     country = Column(String(100))
     created_on = Column(Date, default=datetime.utcnow, nullable=False)
     updated_on = Column(Date, default=datetime.utcnow, nullable=False)
-    staff = relationship('User', secondary='user_hospital_junction', back_populates='hospitals', uselist=True)
+    staff = relationship('User', secondary='hospital_staff', back_populates='hospitals', uselist=True)
 
     def update(self, *args, **kwargs):
         for k, v in kwargs.items():
