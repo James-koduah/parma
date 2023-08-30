@@ -34,6 +34,7 @@ def welcome():
     return render_template('basic/welcome/welcome.html')
 
 
+
 @app.route('/signup/', methods=['post', 'get'], strict_slashes=False)
 def signup():
     if request.method == 'GET':
