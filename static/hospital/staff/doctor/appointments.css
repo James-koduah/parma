@@ -1,0 +1,99 @@
+#appointments{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#appointments_description{
+	width: 90%;
+	height: 70px;
+	padding-left: 8%;
+	padding-right: 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#appointments_header{
+	width: 55%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	font-size: 4em;
+	font-weight: 700;
+}
+#appointments_actions{
+	width: 30%;
+	height: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#appointments_actions ion-icon{
+	font-size: 6em;
+}
+#appointments_search{
+	width: 70%;
+	height: 25px;
+	border: 1px #000 solid;
+	border-radius: 2vw;
+	padding-left: 3%;
+}
+
+
+
+.appointments_item{
+	width: 90%;
+	height: 80px;
+	margin-bottom: 20px;
+	display: flex;
+	cursor: pointer;
+}
+.appointments_item:hover{
+	background: #ddd;
+}
+
+.appointments_item_profile{
+	width: 120px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.appointments_item_profile ion-icon{
+	font-size: 10em;
+}
+.appointments_item_profile p{
+	font-size: 2.2em;
+	font-weight: 700;
+}
+.appointments_item_description{
+	width: 50%;
+	height: 100%;
+	padding-left: 2%;
+	padding-top: 5px;
+}
+.appointments_item_description p{
+	font-size: 2.1em;
+	font-weight: 700;
+}
+.appointments_item_actions{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 5%;
+}
+.appointments_item_actions div{
+	width: 100px;
+	height: 30px;
+	border: 2px #222 solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.6em;
+	font-weight: 700;
+}
+.appointments_item_actions div:hover{
+	background: red;
+}

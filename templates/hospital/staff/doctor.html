@@ -3,17 +3,86 @@
     <head>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/main.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/dashboard.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/appointments.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/history.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/notifications.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/prescriptions.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
     <body>
 	    <nav>
-		    <h1 id='logo' style='cursor: pointer' onclick='window.location.reload(true)'>PARMA.{{user.role}}</h1>
+		    <h1 id='logo' style='cursor: pointer' onclick='window.location.reload(true)'>PARMA.</h1>
 		    <h2 id='nav_profile'>{{user.name}}</h2>
 	    </nav>
 	    <main>
+		    <div id='menu'>
+			    <div id='sections_menu'>
+				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item active'>Appointments</div>
+				    <div onclick='display_dashboard("history", this)' class='sections_menu_item'>History</div>
+				    <div onclick='display_dashboard("notifications", this)' class='sections_menu_item'>Notifications</div>
+				    <div onclick='display_dashboard("prescriptions", this)' class='sections_menu_item'>Prescriptions</div>
+			    </div>
+			    <div id='menu_profile'>Dr. {{user.name}}</div>
+		    </div>
+		    <div id='dashboard'>
+			    <div class='dashboard_item' id='appointments'>
+				    <div id='appointments_description'>
+					    <div id='appointments_header'>Patients waiting for you...</div>
+					    <div id='appointments_actions'>
+						    <ion-icon name="calendar-clear-outline"></ion-icon>
+						    <input id='appointments_search' placeholder='Search'>
+					    </div>
+				    </div>
+				    <div class='appointments_item'>
+					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
+					    <div class='appointments_item_description'>
+						    <p>
+						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
+						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
+						    all records in the table will be deleted!
+						    </p>
+					    </div>
+					    <div class='appointments_item_actions'>
+						    <div>Meet Now</div>
+					    </div>
+				    </div>
+				    <div class='appointments_item'>
+					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
+					    <div class='appointments_item_description'>
+						    <p>
+						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
+						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
+						    all records in the table will be deleted!
+						    </p>
+					    </div>
+					    <div class='appointments_item_actions'>
+						    <div>Meet Now</div>
+					    </div>
+				    </div>
+				    <div class='appointments_item'>
+					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
+					    <div class='appointments_item_description'>
+						    <p>
+						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
+						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
+						    all records in the table will be deleted!
+						    </p>
+					    </div>
+					    <div class='appointments_item_actions'>
+						    <div>Meet Now</div>
+					    </div>
+				    </div>
+			    </div>
+			    <div class='dashboard_item' id='history'></div>
+			    <div class='dashboard_item' id='notifications'></div>
+			    <div class='dashboard_item' id='prescriptions'></div>
+		    </div>
 	    </main>
 	    <section>
 	    </section>
+	    <script src={{ url_for('static', filename='hospital/staff/doctor/app.js') }}></script>
     </body>
 </html>

@@ -18,14 +18,14 @@
 	    </nav>
 	    <main>
 		    <div id='menu'>
-			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='register_staff'><p>Register/Invite Staff</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='pending_staff_invites'><p>Pending Staff Invites</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='confirm_staff'><p>Confirm Staff</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_database'><p>Staff Database</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='patients_database'><p>Patients Database</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='payments'><p>Payments</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='appointments'><p>Appointments</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='statistics'><p>Statistics</p></div>
+			    <div class='menu_item active' onclick='display_dashboard("register_staff",this)'><p>Register/Invite Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard("pending_staff_invites",this)'><p>Pending Staff Invites</p></div>
+			    <div class='menu_item' onclick='display_dashboard("confirm_staff",this)'><p>Confirm Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard("staff_database",this)'><p>Staff Database</p></div>
+			    <div class='menu_item' onclick='display_dashboard("patients_database",this)'><p>Patients Database</p></div>
+			    <div class='menu_item' onclick='display_dashboard("payments",this)'><p>Payments</p></div>
+			    <div class='menu_item' onclick='display_dashboard("appointments",this)'><p>Appointments</p></div>
+			    <div class='menu_item' onclick='display_dashboard("statistics",this)'><p>Statistics</p></div>
 			    <div class='menu_item' onclick='window.location.href="/user/{{user.username}}"'><p>Your Dashboard</p></div>
 		    </div>
 		    <div id='dashboard'>
