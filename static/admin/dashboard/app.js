@@ -21,10 +21,14 @@ function display_dashboard(dashboard_id, menu_item=false){
 
 
 function send_invite(hospital_id){
+	popup_display('Sending Invite...')
 	let role = document.querySelector('input[name="role"]:checked');
 	let job_description = document.getElementById('invite_job_description');
 	let invite_username = document.getElementById('invite_username');
 	let url = '/admin/invite_staff'
+	if (job_description.value == ''){
+		return popup_display('Provide a Job description')
+	}
 	fetch(url, {
 		headers : {'Content-Type' : 'application/json'},
 		method : 'POST',
@@ -37,10 +41,9 @@ function send_invite(hospital_id){
 	})
 	.then((response)=>{return response.json()})
 	.then((json)=>{
-		console.log(json['response'])
+		popup_display(json['response'])
 		job_description.value=''
 		invite_username.value=''
-		window.location.reload(true)
 	})
 }
 
@@ -54,7 +57,28 @@ function confirm_staff(invite_id){
 	})
 	.then((res)=>{return res.json()})
 	.then((json)=>{
-		console.log(json['response'])
+		popup_display(json['response'])
 		window.location.reload(true)
 	})
 }
+
+let popup = document.getElementById('response_status')
+let popup_text = document.getElementById('response_status_text')
+function popup_display(text){
+	popup.style.display = 'flex'
+	popup_text.innerHTML = text
+}
+function popup_display_close(){
+	popup.style.display = 'none'
+}
+
+
+
+document.getElementById('invite_job_description').addEventListener('keydown', (e)=>{
+	if (e.keyCode == 13){
+		document.getElementById('invite_username').focus()
+	}
+})
+document.getElementById('invite_username').addEventListener('keydown', (e)=>{
+	if (e.keyCode == 13) send_invite();		
+})

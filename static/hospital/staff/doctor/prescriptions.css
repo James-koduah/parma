@@ -1,3 +1,55 @@
 #prescriptions{
-	background: gold;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 25px;
+}
+
+#prescriptions_search{
+	width: 95%;
+	height: 35px;
+	background: #eee;
+	border: 1px #000 solid;
+	border-radius: 1vw;
+	display: flex;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+#prescriptions_searchbox{
+	width: 80%;
+	height: 100%;
+	border: none;
+	padding-left: 2%;
+}
+#prescriptions_searchbutton{
+	width: 20%;
+	height: 100%;
+	border: 1px #222 solid;
+	background: #000;
+	color: #fff;
+}
+
+.drug{
+	width: 95%;
+	height: 80px;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.drug_image{
+	width: 80px;
+	height: 100%;
+	background: #555;
+}
+.drug_info{
+	width: 70%;
+	height: 100%;
+	padding: 1px 0 0 2%;
+}
+.drug_info header{
+	font-size: 2.8em;
+	font-weight: 700;
+}
+.drug_info p{
+	font-size: 2.5em;
 }

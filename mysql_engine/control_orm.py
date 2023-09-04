@@ -8,6 +8,8 @@ from mysql_engine.user import User
 from mysql_engine.admin import Admin
 from mysql_engine.junction_tables import Hospital_staff
 from mysql_engine.invite_staff import Invite_staff
+from mysql_engine.patient import Patient
+from mysql_engine.drug import Drug
 
 
 class Control():

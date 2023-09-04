@@ -7,16 +7,27 @@
 
 
 .hospital{
-	width: 130px;
-	height: 150px;
-	background: black;
+	width: 230px;
+	height: 130px;
+	padding: 20px 0 3px 5px;
+	background: #222;
+	color: #eee;
 	border-radius: 1vw;
 	overflow: hidden;
 	margin-left: 5%;
 	cursor: pointer;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+}
+.hospital header{
 	font-size: 2.5em;
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.hospital p{
+	font-size: 2.3em;
 }
 

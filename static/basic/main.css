@@ -5,9 +5,9 @@
 body{
 	width: 100vw;
 	min-height: 100vh;
-	background: #2c2c2c;
-	color: #fcfcfc;
-	font-family: Oscine, sans-serif;
+	background: #eee;
+	color: #444;
+	font-family:Oscine, sans-serif;
 	font-size: 5px;
 }
 input:focus{
@@ -23,7 +23,7 @@ nav{
 	width: 97vw;
 	height: 8vh;
 	padding: 1vh 2vw 1vh 1vw;
-	background: #000;
+	background: #1a4cc3;
         display: flex;
 	justify-content: space-between;
         align-items: center;

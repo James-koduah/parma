@@ -39,7 +39,7 @@ def hospital_register():
         hospital_staff = control.evaluate('Hospital_staff')
         hospital = control.make_query('Hospital', 'public_id', public_id)
         
-        hospital_staff.update(user_id=user.id, hospital_id=hospital.id, public_id=f"{hospital.id}{user.id}")
+        hospital_staff.update(user_id=user.id, hospital_id=hospital.id, public_id=f"{hospital.id}{user.id}", user_role='Administrator')
         control.add_item(hospital_staff)
         control.commit_session()
         return redirect(f'/admin/dashboard/{public_id}')
@@ -81,13 +81,13 @@ def admin_invite_staff():
     """Get user from database"""
     invite_user = control.make_query('User', 'username', invite_username)
     if invite_user == None:
-        return jsonify({"response": "Error, Wrong Username"})
+        return jsonify({"response": "Error, Username doesn't Exist"})
     """Get Hospital from database"""
     hospital = control.make_query("Hospital", 'public_id', hospital_id)
     """check if user is already a staff member"""
     user_is_staff = control.make_query("Hospital_staff", "public_id", f"{hospital.id}{invite_user.id}")
     if user_is_staff:
-        return jsonify({"response": "User is already a staff member"})
+        return jsonify({"response": "User is already your staff member"})
     staff_invite = control.evaluate('Invite_staff')
     staff_invite.update(
             public_id=public_id,

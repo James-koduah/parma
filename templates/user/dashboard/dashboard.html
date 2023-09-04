@@ -19,12 +19,14 @@
 			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='hospitals'><p>Hospitals</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='profile'><p>Profile</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_invite'><p>Staff Invite</p></div>
+			    <div class='menu_item' onclick='window.location.href="/logout"'><p>Logout</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='hospitals'>
 				    {%for hospital in user.hospitals%}
 				    <a href='/hospital/{{hospital.public_id}}' class='hospital'>
-					    {{hospital.name}}
+					    <header>{{hospital.name}}</header>
+					    <p>Your Role - <strong>{{hospital.user_role}}</strong></p>
 				    </a>
 				    {%endfor%}
 			    </div>

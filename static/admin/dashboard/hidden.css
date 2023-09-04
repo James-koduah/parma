@@ -1,0 +1,24 @@
+#response_status{
+	position: fixed;
+	width: 400px;
+	height: 200px;
+	padding: 50px 0 50px 0;
+	top: 30vh;
+	left: 30%;
+	background: #222;
+	color: #fff;
+	border: 2px #111 solid;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	display: none;
+}
+#response_status p{
+	font-size: 3em;
+}
+#response_status button{
+	width: 75%;
+	height: 35px;
+	border: 1px #222 solid;
+}
+

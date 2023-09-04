@@ -1,5 +1,4 @@
 import bcrypt
-from flask import session
 from sqlalchemy import Column, Integer, String, UniqueConstraint, Date, Text
 from datetime import datetime
 from sqlalchemy.orm import relationship

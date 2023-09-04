@@ -8,6 +8,7 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/staff_database.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/pending_staff_invites.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/confirm_staff.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='admin/dashboard/hidden.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
@@ -103,6 +104,9 @@
 		    </div>
 	    </main>
 	    <section>
+		    <div id='response_status'>
+			    <p id='response_status_text'></p>
+			    <button onclick='popup_display_close()'>Close</button>
 	    </section>
 	    <script src='{{ url_for('static', filename="admin/dashboard/app.js") }}'></script>
     </body>

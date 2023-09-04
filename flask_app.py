@@ -34,7 +34,6 @@ def welcome():
     return render_template('basic/welcome/welcome.html')
 
 
-
 @app.route('/signup/', methods=['post', 'get'], strict_slashes=False)
 def signup():
     if request.method == 'GET':
@@ -110,6 +109,17 @@ def login():
         response.set_cookie('user_parma', f'{user.username}')
         return response
     return render_template('basic/login/login.html')
+
+@app.route('/logout', strict_slashes=False)
+def logout():
+    user = auth_user()
+    if user == False:
+        return redirect('/login')
+    response = make_response(redirect('/login'))
+    response.set_cookie('auth_parma', expires=0)
+    response.set_cookie('user_parma', expires=0)
+    return response
+
 
 
 

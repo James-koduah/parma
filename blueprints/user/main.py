@@ -15,6 +15,9 @@ def user_main(username):
     if user: # If the user is the same veiwing his own page
         if page.username == user.username:
             staff_invites = control.get_staff_invite_user(user.public_id, 'pending')
+            for hospital in user.hospitals:
+                staff_status = control.make_query("Hospital_staff", 'public_id', f'{hospital.id}{user.id}')
+                hospital.update(user_role=staff_status.user_role)
             return render_template('user/dashboard/dashboard.html', user=page, staff_invites=staff_invites)
     if page: # If the person requesting is not the owner of the page
         return "This page will display information of this user to people searching for them. Like how people can view your twitter profile"

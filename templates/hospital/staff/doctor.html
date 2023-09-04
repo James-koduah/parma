@@ -13,17 +13,30 @@
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
     <body>
-	    <nav>
-		    <h1 id='logo' style='cursor: pointer' onclick='window.location.reload(true)'>PARMA.</h1>
+	    <!--nav>
+		    <h1 id='logo' style='cursor: pointer' onclick='window.location.href="/user/{{user.username}}"'>PARMA.</h1>
 		    <h2 id='nav_profile'>{{user.name}}</h2>
-	    </nav>
+	    </nav-->
+	    <div id='exit'><ion-icon name="power" onclick='window.location.href="/user/{{user.username}}"'></ion-icon></div>
 	    <main>
 		    <div id='menu'>
 			    <div id='sections_menu'>
-				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item active'>Appointments</div>
-				    <div onclick='display_dashboard("history", this)' class='sections_menu_item'>History</div>
-				    <div onclick='display_dashboard("notifications", this)' class='sections_menu_item'>Notifications</div>
-				    <div onclick='display_dashboard("prescriptions", this)' class='sections_menu_item'>Prescriptions</div>
+				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item active'>
+					    <p>Appointments</p>
+					    <div class='sections_menu_notification'>3</div>
+				    </div>
+				    <div onclick='display_dashboard("history", this)' class='sections_menu_item'>
+					    <p>History</p>
+					    <div class='sections_menu_notification'></div>
+				    </div>
+				    <div onclick='display_dashboard("notifications", this)' class='sections_menu_item'>
+					    <p>Notifications</p>
+					    <div class='sections_menu_notification'></div>
+				    </div>
+				    <div onclick='display_dashboard("prescriptions", this)' class='sections_menu_item'>
+					    <p>Prescriptions</p>
+					    <div class='sections_menu_notification'></div>
+				    </div>
 			    </div>
 			    <div id='menu_profile'>Dr. {{user.name}}</div>
 		    </div>
@@ -78,7 +91,42 @@
 			    </div>
 			    <div class='dashboard_item' id='history'></div>
 			    <div class='dashboard_item' id='notifications'></div>
-			    <div class='dashboard_item' id='prescriptions'></div>
+			    <div class='dashboard_item' id='prescriptions'>
+				    <div id='prescriptions_search'>
+					    <input id='prescriptions_searchbox' placeholder='Search Drug or Search Drug Use'>
+					    <button id='prescriptions_searchbutton'>Search</button>
+				    </div>
+				    <div class='drug'>
+					    <div class='drug_image'></div>
+					    <div class='drug_info'>
+						    <header>Paracetamol</header>
+						    <p>Price : <strong>GHC 2.00</strong></p>
+						    <p>Amount in Stock : <strong>40 Boxes</strong></p>
+						    <p>Info : Paracetamol is used for curing headaches and providing relief from pain</p>
+						    <p>Usage : Not for children below 1 year of age</p>
+					    </div>
+				    </div>
+				    <div class='drug'>
+					    <div class='drug_image'></div>
+					    <div class='drug_info'>
+						    <header>Panadol</header>
+						    <p>Price : <strong>GHC 5.00</strong></p>
+						    <p>Amount in Stock : <strong>20 Boxes</strong></p>
+						    <p>Info : Panadol is used for curing headaches and providing relief from pain</p>
+						    <p>Usage : Above the ages of 5 years old. Not for pregnant women</p>
+					    </div>
+				    </div>
+				    <div class='drug'>
+					    <div class='drug_image'></div>
+					    <div class='drug_info'>
+						    <header>Amyceptryne</header>
+						    <p>Price : <strong>GHC 15.00</strong></p>
+						    <p>Amount in Stock : <strong>100 Boxes</strong></p>
+						    <p>Info : Amyceptryne is a sleeping tablet</p>
+						    <p>Usage : For Adults above the ages of 10 years old. Not for pregnant women</p>
+					    </div>
+				    </div>
+			    </div>
 		    </div>
 	    </main>
 	    <section>

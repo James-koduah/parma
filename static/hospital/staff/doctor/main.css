@@ -4,6 +4,22 @@ main{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 0vh;
+}
+
+#exit{
+	position: absolute;
+	top: 0vh;
+	width: 96vw;
+	height: 60px;
+	display: flex;
+	align-items: end;
+	justify-content: flex-end;
+	padding-right: 4vw;
+}
+#exit ion-icon{
+	font-size: 50px;
+	cursor: pointer;
 }
 
 #menu{
@@ -21,6 +37,7 @@ main{
 	justify-content: flex-start;
 }
 .sections_menu_item{
+	position: relative;
 	width: 25%;
 	height: 100%;
 	background: #111;
@@ -31,9 +48,31 @@ main{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.sections_menu_item:hover{
+	background: #444;
+}
+.sections_menu_item p{
 	font-size: 2.2em;
 	font-weight: 700;
 }
+.sections_menu_notification{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: red;
+	color: #fff;
+	border-radius: 50%;
+	top: 0;
+	right: 0;
+	margin-top: -9px;
+	font-size: 13px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
 #menu_profile{
 	width: 30%;
 	height: 100px;
