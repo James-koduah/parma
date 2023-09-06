@@ -1,9 +1,11 @@
 import bcrypt
-from sqlalchemy import Column, Integer, String, UniqueConstraint, Date, Text
+from sqlalchemy import Column, Integer, String, UniqueConstraint, DateTime, Text
 from datetime import datetime
 from sqlalchemy.orm import relationship
 from mysql_engine.base import Base
 from mysql_engine.constants import USERNAME_LENGTH, EMAIL_LENGTH, PROFILE_PIC_LENGTH, PUBLIC_ID_LENGTH, PASSWORD_LENGTH, POSITION_LENGTH, LOGIN_TOKEN_LENGTH
+
+time = "%Y-%m-%dT%H:%M:%S.%f"
 
 class User(Base):
     """An orm representation of a user"""
@@ -17,10 +19,11 @@ class User(Base):
     email = Column(String(EMAIL_LENGTH), unique=True)
     password = Column(String(PASSWORD_LENGTH))
     login_token = Column(String(LOGIN_TOKEN_LENGTH))
-    created_on = Column(Date, default=datetime.utcnow, nullable=False)
-    updated_on = Column(Date, default=datetime.utcnow, nullable=False)
+    created_on = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_on = Column(DateTime, default=datetime.utcnow, nullable=False)
     hospitals = relationship('Hospital', secondary='hospital_staff', back_populates='staff', uselist=True)
 
+   
     #Method to update user info all at once
     def update(self, **kwargs):
         #defining a set of allowed attribute names that can be updated

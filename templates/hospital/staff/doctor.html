@@ -5,6 +5,7 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/dashboard.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/current_patient.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/appointments.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/history.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/doctor/notifications.css') }}>
@@ -17,17 +18,22 @@
 		    <h1 id='logo' style='cursor: pointer' onclick='window.location.href="/user/{{user.username}}"'>PARMA.</h1>
 		    <h2 id='nav_profile'>{{user.name}}</h2>
 	    </nav-->
-	    <div id='exit'><ion-icon name="power" onclick='window.location.href="/user/{{user.username}}"'></ion-icon></div>
+	    <div id='nav'>
+		    <ion-icon onclick='dark_light_mode()' name="contrast-outline"></ion-icon>
+	    	   <ion-icon name="power" onclick='window.location.href="/user/{{user.username}}"'></ion-icon>
+	    </div>
 	    <main>
 		    <div id='menu'>
 			    <div id='sections_menu'>
-				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item active'>
+				    <div onclick='display_dashboard("current_patient", this)' class='sections_menu_item active'>
+					    <p>Current Patient</p>
+				    </div>
+				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item'>
 					    <p>Appointments</p>
 					    <div class='sections_menu_notification'>3</div>
 				    </div>
 				    <div onclick='display_dashboard("history", this)' class='sections_menu_item'>
 					    <p>History</p>
-					    <div class='sections_menu_notification'></div>
 				    </div>
 				    <div onclick='display_dashboard("notifications", this)' class='sections_menu_item'>
 					    <p>Notifications</p>
@@ -35,12 +41,13 @@
 				    </div>
 				    <div onclick='display_dashboard("prescriptions", this)' class='sections_menu_item'>
 					    <p>Prescriptions</p>
-					    <div class='sections_menu_notification'></div>
 				    </div>
 			    </div>
 			    <div id='menu_profile'>Dr. {{user.name}}</div>
 		    </div>
 		    <div id='dashboard'>
+			    <div class='dashboard_item' id='current_patient'>
+			    </div>
 			    <div class='dashboard_item' id='appointments'>
 				    <div id='appointments_description'>
 					    <div id='appointments_header'>Patients waiting for you...</div>
@@ -49,45 +56,21 @@
 						    <input id='appointments_search' placeholder='Search'>
 					    </div>
 				    </div>
+				    {%for appointment in appointments%}
 				    <div class='appointments_item'>
 					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
-					    <div class='appointments_item_description'>
+                                            <div class='appointments_item_description'>
 						    <p>
-						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
-						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
-						    all records in the table will be deleted!
-						    </p>
+                                                    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
+                                                    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
+                                                    all records in the table will be deleted!
+                                                    </p>
 					    </div>
 					    <div class='appointments_item_actions'>
 						    <div>Meet Now</div>
 					    </div>
 				    </div>
-				    <div class='appointments_item'>
-					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
-					    <div class='appointments_item_description'>
-						    <p>
-						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
-						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
-						    all records in the table will be deleted!
-						    </p>
-					    </div>
-					    <div class='appointments_item_actions'>
-						    <div>Meet Now</div>
-					    </div>
-				    </div>
-				    <div class='appointments_item'>
-					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
-					    <div class='appointments_item_description'>
-						    <p>
-						    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
-						    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
-						    all records in the table will be deleted!
-						    </p>
-					    </div>
-					    <div class='appointments_item_actions'>
-						    <div>Meet Now</div>
-					    </div>
-				    </div>
+				    {%endfor%}
 			    </div>
 			    <div class='dashboard_item' id='history'></div>
 			    <div class='dashboard_item' id='notifications'></div>

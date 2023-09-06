@@ -10,6 +10,7 @@ from mysql_engine.junction_tables import Hospital_staff
 from mysql_engine.invite_staff import Invite_staff
 from mysql_engine.patient import Patient
 from mysql_engine.drug import Drug
+from mysql_engine.appointment import Appointment
 
 
 class Control():

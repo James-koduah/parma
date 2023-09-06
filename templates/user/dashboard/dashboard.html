@@ -6,6 +6,7 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/hospital.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/staff_invite.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='user/dashboard/hidden.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
@@ -19,7 +20,7 @@
 			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='hospitals'><p>Hospitals</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='profile'><p>Profile</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_invite'><p>Staff Invite</p></div>
-			    <div class='menu_item' onclick='window.location.href="/logout"'><p>Logout</p></div>
+			    <div class='menu_item' onclick='document.getElementById("confirm_logout").style.display="flex"'><p>Logout</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='hospitals'>
@@ -45,6 +46,13 @@
 		    </div>
 	    </main>
 	    <section>
+		    <div id='confirm_logout'>
+			    <p>Are you sure you want to logout</p>
+			    <div>
+				    <button onclick='window.location.href="/logout"'>Yes</button>
+				    <button onclick='document.getElementById("confirm_logout").style.display="none"'>No</button>
+			    </div>
+		    </div>
 	    </section>
 	    <script src={{ url_for('static', filename='user/dashboard/app.js') }}></script>
     </body>

@@ -30,7 +30,7 @@ def hospital_work(hospital_id, user_id):
         return render_template('basic/error.html', message='You are not a staff of this hospital')
     staff.role = is_staff.user_role
     if staff.role == 'Doctor':
-        return render_template('hospital/staff/doctor.html', user=staff, hospital=hospital)
+        return render_template('hospital/staff/doctor.html', user=staff, hospital=hospital, appointments=['a', 'v'])
     if staff.role == 'Nurse':
         return render_template('hospital/staff/nurse.html', user=staff, hospital=hospital)
     return render_template('basic/error.html', message='Error, cannot process user data, notification sent to team')

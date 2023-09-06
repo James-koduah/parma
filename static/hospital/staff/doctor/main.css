@@ -7,18 +7,17 @@ main{
 	margin-top: 0vh;
 }
 
-#exit{
-	position: absolute;
-	top: 0vh;
-	width: 96vw;
-	height: 60px;
+#nav{
+	width: 95vw;
+	height: 50px;
+	position: fixed;
+	top: 3vh;
+	left: 2.5vw;
 	display: flex;
-	align-items: end;
-	justify-content: flex-end;
-	padding-right: 4vw;
+	justify-content: space-between;
 }
-#exit ion-icon{
-	font-size: 50px;
+#nav ion-icon{
+	font-size: 40px;
 	cursor: pointer;
 }
 
