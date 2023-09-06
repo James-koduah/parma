@@ -5,6 +5,7 @@
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/welcome/welcome.css') }}>
 	    <link rel="stylesheet" href={{ url_for('static', filename='basic/welcome/reveiws.css') }}>
+	    <link rel="stylesheet" href={{ url_for('static', filename='basic/welcome/about.css') }}>
 	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
@@ -18,12 +19,11 @@
 			    <div id='welcome_message'>
 				    <div id='welcome_text'>
 					    <h2>Parma. Your HealthCare System Manager</h2>
-					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-					    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-					    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
-					    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-					    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
-					    electrónicos, quedando esencialmente igual al original.
+					    <p>
+					    Parma is here to help you manage daily activites and operations of your healtcare center.
+					    Keep track of your patients, their medical history and their prescriptions.
+					    Help Staff to manage their work-flow and stay up-to-date about situations in the healtCare center
+					    and manage Payments all with one software
 					    </p>
 					    <div id='welcome_video'>
 						    <ion-icon name="play-circle"></ion-icon>
@@ -61,59 +61,75 @@
 		    <section id='reveiws'>
 			    <div class='reveiw'>
 				    <div class='reveiw_profile'>
-					    <ion-icon name="person-circle"></ion-icon>
+					    <div><img src={{ url_for('static', filename='resources/welcome/doctor.jpeg') }}></div> 
 				    </div>
 				    <div class='reveiw_text'>
-					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-                                            cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
-                                            galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-                                            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
-                                            electrónicos, quedando esencialmente igual al original.
-                                            </p>
+					    <header>DOCTORS...</header>
+					    <div><img src={{ url_for('static', filename='resources/welcome/doctor_dashboard.png') }}></div>
+					    <p>Has relevant information about a patient in a simple display.</p>
+					    <p>Is allowed to display willingness to receive a patient or book appointments with
+					    waiting patients</p>
+					    <p>Search Engine to look up medications, their use cases and other relevant information</p>
 				    </div>
 			    </div>
 			    <div class='reveiw'>
 				    <div class='reveiw_profile'>
-					    <ion-icon name="person-circle"></ion-icon>
+					    <div><img src={{ url_for('static', filename='resources/welcome/nurse.jpeg') }}></div> 
 				    </div>
 				    <div class='reveiw_text'>
-					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-                                            cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
-                                            galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-                                            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
-                                            electrónicos, quedando esencialmente igual al original.
-                                            </p>
+					    <header>NURSES...</header>
+					    <div><img src={{ url_for('static', filename='resources/welcome/doctor_dashboard.png') }}></div>
+					    <p>Enter patient details</p>
+					    <p>Book Doctors Appointments</p>
+					    <p>Veiw Patients medical History</p>
 				    </div>
 			    </div>
 			    <div class='reveiw'>
 				    <div class='reveiw_profile'>
-					    <ion-icon name="person-circle"></ion-icon>
+					    <div><img src={{ url_for('static', filename='resources/welcome/admin.jpeg') }}></div> 
 				    </div>
 				    <div class='reveiw_text'>
-					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-                                            cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
-                                            galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-                                            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
-                                            electrónicos, quedando esencialmente igual al original.
-                                            </p>
+					    <header>ADMINISTRATORS...</header>
+					    <p>Manage Staff</p>
+					    <p>Real time statistics on hospital operations</p>
+					    <p>Ability to shedule staff shifts</p>
 				    </div>
 			    </div>
 			    <div class='reveiw'>
 				    <div class='reveiw_profile'>
-					    <ion-icon name="person-circle"></ion-icon>
+					    <div><img src={{ url_for('static', filename='resources/welcome/patient.jpeg') }}></div> 
 				    </div>
 				    <div class='reveiw_text'>
-					    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
-                                            cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
-                                            galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
-                                            No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos
-                                            electrónicos, quedando esencialmente igual al original.
-                                            </p>
+					    <header>PATIENTS...</header>
+					    <p>Can request a date for an appointment</p>
+					    <p>Can be automatically contacted about medical needs or appointments through messages or emails</p>
+					    <p>Can use the in-app feature to make payments</p>
 				    </div>
+			    </div>
+		    </section>
+		    <section id='about'>
+			    <div id='about_description'>
+				    <header>About</header>
+				    <p>
+				    This project was started to help our healtcare centers be more efficient in their daily activities. The long wait times
+				    and general miscommunication that often occur in most of our healtcare centers have been a source of great pain to a lot
+				    of people.<br>
+				    Parma is a project that has its start as an ALX/HOLBERTON school project.We have aims of growing as a software solution and
+				    seeing a mass adoption of PARMA in our healtcare centers.
+				    </p>
+			    </div>
+			    <header>Team</header>
+			    <div class='about_item' id='james'>
+				    <div class='about_image'><img src={{ url_for('static', filename='resources/welcome/james.webp') }}></div>
+				    <div class='about_info'>
+					    <h5>James Koduah</h5>
+				    </div>
+			    </div>
+			    <div class='about_item' id='alex'>
+				    <div class='about_info'>
+					    <h5>Alexander Ushe</h5>
+				    </div>
+				    <div class='about_image'><img src={{ url_for('static', filename='resources/welcome/alex.png') }}></div>
 			    </div>
 		    </section>
 	    </main>

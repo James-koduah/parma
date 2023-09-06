@@ -1,0 +1,66 @@
+#about{
+	width: 100vw;
+	height: fit-content;
+	background: #111;
+	color: #eee;
+	padding-bottom: 5vh;
+}
+
+#about_description{
+	width: 100vw;
+	height: 50vh;
+	text-align: center;
+}
+#about header{
+	width: 100%;
+	text-align: center;
+	font-size: 8em;
+	font-weight: 700;
+	padding: 0.5em 0 0.5em 0;
+}
+#about_description p{
+	width: 80%;
+	margin: 0 auto 0 auto;
+	font-size: 3.5em;
+}
+
+
+
+
+
+.about_item{
+	width: 100vw;
+	height: 50vh;
+	min-height: 400px;
+	display: flex;
+	flex-direction: row;
+}
+.about_image{
+	min-width: 400px;
+	width: 40%;
+	height: 100%;
+}
+.about_image img{
+	object-fit: contain;
+}
+.about_info{
+	width: 50%;
+	height: 100%;
+	padding: 1em 10% 1em 10%;
+}
+.about_info h5{
+	font-size: 6em;
+}
+
+
+
+#james{
+	background: #2e012a;
+	text-align: left;
+	margin-bottom: 5vh;
+}
+#alex{
+	background: #3c3302;
+	text-align: right;
+}
+

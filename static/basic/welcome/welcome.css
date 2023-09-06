@@ -16,7 +16,11 @@
 	width: 100vw;
 	height: 92vh;
 	display: flex;
+	color: #000;
 	justify-content: space-between;
+	background: url('../../resources/welcome/welcome.jpeg') no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
 }
 
 #welcome_message{
@@ -62,6 +66,7 @@
 	font-size: 3em;
 	font-weight: 600;
 	background: #221d1d;
+	color: #eee;
 	margin-top: 30px;
 	border: 1px #eee solid;
 }
