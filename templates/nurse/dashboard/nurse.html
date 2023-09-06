@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={{ url_for('static', filename='nurse/dashboard/main.css') }}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="nurse, dashboard, appointment, booking">
+    <title>Nurse Dashboard - Book an Appointment</title>
+</head>
+    <body>
+        <h1>Nurse Dashboard</h1>
+        <div id="main-dashboard">
+            <div id="side-menu">
+                <a href="#">Book an appointment</a>
+                <a href="#">Task list</a>
+                <a href="#">Profile Management</a>
+                <a href="#">Notifications</a>
+                <a href="#">Help & Support</a>
+            </div>
+            <div id="book">
+                    <ul>
+                        <li>ID No.</li>
+                        <input type="text" name="id" placeholder="Enter patient's ID #"/>
+                        <li>Description</li>
+                        <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness" readonly></textarea>
+                    </ul>
+                        <ul>
+                            <li>
+                                <select name="doctors" id="available-doctors">
+                                    <option value="" disabled selected>Doctors available</option>
+                                    <option value="doc-1">Doctor James</option>
+                                    <option value="doc-2">Doctor Farai</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                            <input type="time" id="timepicker" />
+                            </li>
+                        </ul>
+                    <ul>
+                        <button class="book-button">Book</button>
+                    </ul>
+                </div>        
+        </div>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, UniqueConstraint, Date, Text
+from sqlalchemy import Column, Integer, ForeignKey, String, UniqueConstraint, Date, Text
 from datetime import datetime
 from sqlalchemy.orm import relationship
 from mysql_engine.base import Base
@@ -14,6 +14,10 @@ class Patient(Base):
     contact = Column(String(20))
     address = Column(String(50))
     hospital_id = Column(String(30))
+
+    #define relationship with assigned nurse
+    nurse_id = Column(Integer, ForeignKey('nurse.id'))
+    assigned_nurse = relationship('Nurse', back_populates='patients')
 
 
     def update(self, *args, **kwargs):
