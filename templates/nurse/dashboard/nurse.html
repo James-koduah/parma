@@ -18,30 +18,44 @@
                 <a href="#">Help & Support</a>
             </div>
             <div id="book">
-                    <ul>
-                        <li>ID No.</li>
-                        <input type="text" name="id" placeholder="Enter patient's ID #"/>
-                        <li>Description</li>
-                        <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness" readonly></textarea>
-                    </ul>
+                <form method="POST" action="{{url_for('nurse.book')}}">
+
+                    <!-- Patient Information -->
+                    <div id="book">
                         <ul>
-                            <li>
-                                <select name="doctors" id="available-doctors">
+                            <li>ID No.</li>
+                            <input type="text" name="id" placeholder="Enter patient's ID #" required>
+                            <li>Description</li>
+                            <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness" readonly></textarea>
+                        </ul>
+                
+                        <!-- Doctor Selection -->
+                        <ul>
+                            <li>{{form.doctor.label}} {{form.doctor(size=32)}}
+                                <select name="doctors" id="available-doctors" required>
                                     <option value="" disabled selected>Doctors available</option>
                                     <option value="doc-1">Doctor James</option>
                                     <option value="doc-2">Doctor Farai</option>
                                 </select>
                             </li>
                         </ul>
+                
+                        <!-- Appointment Time -->
                         <ul>
                             <li>
-                            <input type="time" id="timepicker" />
+                                {{form.appointment_time.label}} {{form.appointment_time()}}
+                                <input type="time" name="appointment_time" id="timepicker" required>
                             </li>
                         </ul>
-                    <ul>
-                        <button class="book-button">Book</button>
-                    </ul>
-                </div>        
+                
+                        <!-- Book Button -->
+                        <ul>
+                            <button type="submit" class="book-button">Book</button>
+                        </ul>
+                    </div>
+                
+                </form>                
+             </div>        
         </div>
     </body>
 </html>
