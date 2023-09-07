@@ -18,14 +18,19 @@ function display_dashboard(dashboard_id, menu_item=false){
 let light_dark = 'light'
 function dark_light_mode(){
 	let body = document.getElementsByTagName('body')[0] 
+	let dashboard = document.getElementById('dashboard')
 	if (light_dark == 'light'){
 		body.style.background="#444"
 		body.style.color="#eee"
+		dashboard.style.background="#333"
+		dashboard.style.color="#eee"
 		light_dark = 'dark'
 	}
 	else if(light_dark == 'dark'){
 		body.style.background="#eee"
 		body.style.color="#444"
+		dashboard.style.background="#ccc"
+		dashboard.style.color="#222"
 		light_dark = "light"
 	}
 }

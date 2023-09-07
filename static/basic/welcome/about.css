@@ -3,7 +3,6 @@
 	height: fit-content;
 	background: #111;
 	color: #eee;
-	padding-bottom: 5vh;
 }
 
 #about_description{
@@ -47,20 +46,53 @@
 	width: 50%;
 	height: 100%;
 	padding: 1em 10% 1em 10%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
+
 .about_info h5{
 	font-size: 6em;
 }
+.about_info p{
+	font-size: 3em;
+}
 
-
+.links{
+	width: 60%;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+.links ion-icon{
+	font-size: 5em;
+	cursor: pointer;
+}
 
 #james{
-	background: #2e012a;
+	background: #181017;
 	text-align: left;
-	margin-bottom: 5vh;
 }
 #alex{
-	background: #3c3302;
+	background: #0c0b08;
 	text-align: right;
 }
 
+
+
+#end{
+	width: 100vw; 
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15vh;
+}
+#end p{
+	font-size: 13em;
+	font-weight: 700;
+	text-align: center;
+}
+#end span{
+	font-size: 50%;
+}
