@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
-	    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/main.css') }}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="nurse, dashboard, appointment, booking">
+    <title>Nurse Dashboard - Book an Appointment</title>
+</head>
     <body>
-	    <nav>
-		    <h1 id='logo' style='cursor: pointer' onclick='window.location.href="/user/{{user.username}}"'>PARMA.{{user.role}}</h1>
-		    <h2 id='nav_profile'>{{user.name}}</h2>
-	    </nav>
-	    <main>
-	    </main>
-	    <section>
-	    </section>
+        <h1>Nurse Dashboard</h1>
+        <div id="main-dashboard">
+            <div id="side-menu">
+                <a href="#">Book an appointment</a>
+                <a href="#">Task list</a>
+                <a href="#">Profile Management</a>
+                <a href="#">Notifications</a>
+                <a href="#">Help & Support</a>
+            </div>
+            <div id="book">
+                <form method="POST" action="">
+
+                    <!-- Patient Information -->
+                    <div id="book">
+                        <ul>
+                            <li>ID No.</li>
+                            <input type="text" name="id" placeholder="Enter patient's ID #" required>
+                            <li>Description</li>
+                            <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness" readonly></textarea>
+                        </ul>
+                
+                        <!-- Doctor Selection -->
+                        <ul>
+                            <li>james
+                                <select name="doctors" id="available-doctors" required>
+                                    <option value="" disabled selected>Doctors available</option>
+                                    <option value="doc-1">Doctor James</option>
+                                    <option value="doc-2">Doctor Farai</option>
+                                </select>
+                            </li>
+                        </ul>
+                
+                        <!-- Appointment Time -->
+                        <ul>
+                            <li>
+                                <input type="time" name="appointment_time" id="timepicker" required>
+                            </li>
+                        </ul>
+                
+                        <!-- Book Button -->
+                        <ul>
+                            <button type="submit" class="book-button">Book</button>
+                        </ul>
+                    </div>
+                
+                </form>                
+             </div>        
+        </div>
     </body>
 </html>
