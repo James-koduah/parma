@@ -1,0 +1,7 @@
+# Ignore Python cache files and directories
+__pycache__/
+*.pyc
+static/nurse/dashboard/app.js
+templates/basic/nurse/
+users.sqlite3
+venv/
