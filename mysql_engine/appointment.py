@@ -19,9 +19,9 @@ class Appointment(Base):
     info = Column(Text())
 
     #Define the relationship with nurses, patients, doctors
-    nurse_id = Column(Integer, ForeignKey('nurse.id'))
-    patient_id = Column(Integer, ForeignKey('patient.id'))
-    doctor_id = Column(Integer, ForeignKey('doctor.id'))
+    # nurse_id = Column(Integer, ForeignKey('nurse.id'))
+    # patient_id = Column(Integer, ForeignKey('patient.id'))
+    # doctor_id = Column(Integer, ForeignKey('doctor.id'))
                       
 
 

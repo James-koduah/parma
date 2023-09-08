@@ -15,7 +15,7 @@ from mysql_engine.appointment import Appointment
 
 class Control():
     """A class that provides an interface for easy usage of data from database"""
-    engine = create_engine("mysql+mysqldb://parma:parma@localhost/parma")
+    engine = create_engine("sqlite:///users.db")
     session = None
 
     def start_session(self):

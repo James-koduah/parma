@@ -16,8 +16,8 @@ class Patient(Base):
     hospital_id = Column(String(30))
 
     #define relationship with assigned nurse
-    nurse_id = Column(Integer, ForeignKey('nurse.id'))
-    assigned_nurse = relationship('Nurse', back_populates='patients')
+    # nurse_id = Column(Integer, ForeignKey('nurse.id'))
+    # assigned_nurse = relationship('Nurse', back_populates='patients')
 
 
     def update(self, *args, **kwargs):

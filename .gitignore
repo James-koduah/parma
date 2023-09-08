@@ -5,3 +5,6 @@ static/nurse/dashboard/app.js
 templates/basic/nurse/
 users.sqlite3
 venv/
+.swp
+parma.db 
+users.db 
