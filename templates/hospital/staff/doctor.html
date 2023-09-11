@@ -30,7 +30,7 @@
 				    </div>
 				    <div onclick='display_dashboard("appointments", this)' class='sections_menu_item'>
 					    <p>Appointments</p>
-					    <div class='sections_menu_notification'>3</div>
+					    <div id='appointments_num' class='sections_menu_notification'></div>
 				    </div>
 				    <div onclick='display_dashboard("history", this)' class='sections_menu_item'>
 					    <p>History</p>
@@ -47,6 +47,23 @@
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='current_patient'>
+				    {%if current_appointment%}
+				    <div id='current_patient_profile'>
+					    <div id='current_patient_profile_pic'></div>
+					    <div id='current_patient_profile_info'>
+						    <header>PATIENT NAME: {{current_appointment.patient_name}}</header>
+						    <p>GENDER: M</p>
+						    <p>PATIENT ID: {{current_appointment.patient_id}}</p>
+					    </div>
+				    </div>
+				    <div id='current_patient_details'><header>Patient's Current Illness</header><p>{{current_appointment.info}}</p></div>
+				    <div id='current_patient_history'>
+					    <header>Medical History</header>
+				    </div>
+				    <button id='current_patient_complete' onclick="close_appointment('{{current_appointment.public_id}}')">Close Appointment</button>
+				    {%else%}
+				    <header>No Current Appointment</header>
+				    {%endif%}
 			    </div>
 			    <div class='dashboard_item' id='appointments'>
 				    <div id='appointments_description'>
@@ -57,17 +74,14 @@
 					    </div>
 				    </div>
 				    {%for appointment in appointments%}
-				    <div class='appointments_item'>
-					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon><p>Patient Name</p></div>
+				    <div id="appointment{{appointment.public_id}}" class='appointments_item'>
+					    <div class='appointments_item_profile'><ion-icon name="person-circle-outline"></ion-icon></div>
                                             <div class='appointments_item_description'>
-						    <p>
-                                                    Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement.
-                                                    The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause,
-                                                    all records in the table will be deleted!
-                                                    </p>
+						    <header>{{appointment.patient_name}}</header>
+						    <p>{{appointment.info}}</p>
 					    </div>
 					    <div class='appointments_item_actions'>
-						    <div>Meet Now</div>
+						    <div onclick='accept_appointment("{{appointment.public_id}}")'>Meet Now</div>
 					    </div>
 				    </div>
 				    {%endfor%}

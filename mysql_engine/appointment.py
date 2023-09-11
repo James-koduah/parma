@@ -25,9 +25,6 @@ class Appointment(Base):
 
     def to_dict(self):
         return {'id': self.public_id,
-                'name': self.name,
-                'location': self.location,
-                'about': self.about
                 }
 
 

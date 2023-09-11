@@ -8,9 +8,11 @@ class Patient(Base):
     __tablename__ = "patients"
     
     id = Column(Integer, primary_key=True)
+    public_id = Column(String(20))
     name = Column(String(100))
-    date_of_birth = Column(Date)
-    gender = Column(String(1))
+    birth_date = Column(String(50))
+    national_id = Column(String(100), unique=True)
+    gender = Column(String(5))
     contact = Column(String(20))
     address = Column(String(50))
     hospital_id = Column(String(30))
@@ -22,9 +24,10 @@ class Patient(Base):
 
     def to_dict(self):
         return {
-                'id': self.id,
+                'id': self.public_id,
                 'name': self.name,
-                'date_of_birth': self.date_of_birth,
+                'birth_date': self.birth_date,
+                'national_id': self.national_id,
                 'contact': self.contact,
                 'address': self.address,
                 'gender': self.gender,

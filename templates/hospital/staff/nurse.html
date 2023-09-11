@@ -2,59 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href={{ url_for('static', filename='basic/main.css') }}>
     <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/main.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/appointments.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/tasks.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/patients.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/notifications.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='hospital/staff/nurse/help_support.css') }}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="nurse, dashboard, appointment, booking">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <title>Nurse Dashboard - Book an Appointment</title>
 </head>
     <body>
-        <h1>Nurse Dashboard</h1>
-        <div id="main-dashboard">
-            <div id="side-menu">
-                <a href="#">Book an appointment</a>
-                <a href="#">Task list</a>
-                <a href="#">Profile Management</a>
-                <a href="#">Notifications</a>
-                <a href="#">Help & Support</a>
-            </div>
-            <div id="book">
-                <form method="POST" action="">
-
-                    <!-- Patient Information -->
-                    <div id="book">
-                        <ul>
-                            <li>ID No.</li>
-                            <input type="text" name="id" placeholder="Enter patient's ID #" required>
-                            <li>Description</li>
-                            <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness" readonly></textarea>
-                        </ul>
-                
-                        <!-- Doctor Selection -->
-                        <ul>
-                            <li>james
-                                <select name="doctors" id="available-doctors" required>
-                                    <option value="" disabled selected>Doctors available</option>
-                                    <option value="doc-1">Doctor James</option>
-                                    <option value="doc-2">Doctor Farai</option>
-                                </select>
-                            </li>
-                        </ul>
-                
-                        <!-- Appointment Time -->
-                        <ul>
-                            <li>
-                                <input type="time" name="appointment_time" id="timepicker" required>
-                            </li>
-                        </ul>
-                
-                        <!-- Book Button -->
-                        <ul>
-                            <button type="submit" class="book-button">Book</button>
-                        </ul>
-                    </div>
-                
-                </form>                
-             </div>        
-        </div>
+	    <div id='nav'>
+		    <ion-icon name="power" onclick='window.location.href="/user/{{user.username}}"'></ion-icon>
+		   <h2>{{user.name}}</h2>
+	    </div>
+	    <main>
+		    <div id='side_menu'>
+			    <div onclick='display_dashboard("appointments", this)' class='side_menu_item active'>Book an Appointment</div>
+			    <div onclick='display_dashboard("tasks", this)' class='side_menu_item'>Task List</div>
+			    <div onclick='display_dashboard("patients", this)' class='side_menu_item'>Patients Database</div>
+			    <div onclick='display_dashboard("notifications", this)' class='side_menu_item'>Notifications</div>
+			    <div onclick='display_dashboard("help_support", this)' class='side_menu_item'>Help & Support</div>
+		    </div>
+		    <div id='dashboard'>
+			    <div class='dashboard_item' id='appointments'>
+				    <div id='appointments_form'>
+					    <div class='appointments_form_item'>
+						    <p>Patients ID</p>
+						    <input id='appointments_patients_id' placeholder='Enter Patients ID#'>
+					    </div>
+					    <div class='appointments_form_item'>
+						    <p>Description</p>
+						    <textarea id='illness_description' placeholder='Short description about patiens illness'></textarea>
+					    </div>
+					    <div class='appointments_form_item'>
+						    <div id='appointments_doctor_display'></div>
+						    <div id='appointments_doctor' onclick='appointments_doctor_display()'><p>Available Doctors</p><div>></div></div>
+					    </div>
+					    <div class='appointments_form_item'>
+						    <button onclick="set_appointment('{{hospital.public_id}}')">Book</button>
+					    </div>
+				    </div>
+				    <div id='appointments_timeslot'>
+					    <p>Appointment Time</p>
+					    <input id='appointment_time' maxlength='4'>
+				    </div>
+			    </div>
+			    <div class='dashboard_item' id='tasks'></div>
+			    <div class='dashboard_item' id='patients'>
+				    <div id='paitents_search'>
+					    <input id='patients_searchbox' placeholder='Search Patient name, Patient ID, National ID'>
+					    <p onclick="search_patient()" id='patients_searchbutton'>Search</p>
+				    </div>
+				    <div id='patients_search_results'></div>
+				    <div id='patients_add'>
+					    <div id='patients_add_success'><div onclick='close_display("patients_add_success")'>X</div><p id='patients_add_success_message'></p></div>
+					    <div class='patients_add_item'><p>Patient's Name</p><input id='patients_add_name' placeholder='Patients Name'></div>
+					    <div class='patients_add_item'><p>Patient's National ID</p><input id='patients_add_national_id' placeholder='Patients National ID#'></div>
+					    <div class='patients_add_item'><p>Patient's Date Of Birth</p><input id='patients_add_birth_date' placeholder='Patients Birth Date'></div>
+					    <div class='patients_add_item'><p>Patient's Contact</p><input id='patients_add_contact' placeholder='Patients Contact'></div>
+					    <button onclick='add_patient("{{hospital.public_id}}")'>Add Patient</button>
+				    </div>
+			    </div>
+			    <div class='dashboard_item' id='notifications'></div>
+			    <div class='dashboard_item' id='help_support'></div>
+		    </div>
+	    </main>
+	    <script src={{ url_for('static', filename='hospital/staff/nurse/app.js') }}></script>
     </body>
 </html>

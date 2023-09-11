@@ -1,0 +1,127 @@
+#patients{
+	flex-direction: column;
+	align-items: center;
+}
+
+#paitents_search{
+	width: 90%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	background: #eee;
+	border-radius: 2vw;
+	overflow: hidden;
+	margin-top: 5px;
+}
+#patients_searchbox{
+	width: 85%;
+	height: 100%;
+	padding-left: 2%;
+	background: #eee;
+}
+#patients_searchbutton{
+	width: 15%;
+	height: 100%;
+	border: 1px #222 solid;
+	color: #222;
+	font-size: 2.3em;
+	display: flex;
+        align-items: center;
+	justify-content: center;
+}
+#patients_search_results{
+	width: 100%;
+	height: 65%;
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.patient_search_item{
+	width: 90%;
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.patient_search_item_img{
+	width: 90px;
+	height: 100%;
+	background: #fff;
+}
+.patient_search_item_info{
+	width: 90%;
+	height: 100%;
+	padding-left: 2%;
+}
+.patient_search_item_info p{
+	font-size: 2.5em;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+
+
+#patients_add{
+	position: relative;
+	width: 100%;
+	height: 35%;
+	background: #333;
+	overflow-y: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: start;
+	padding-top: 15px;
+
+}
+
+.patients_add_item{
+	width: 40%;
+	height: fit-content;
+}
+.patients_add_item p{
+	font-size: 2.3em;
+	font-weight: 700;
+}
+.patients_add_item input{
+	width: 100%;
+	height: 30px;
+	padding-left: 2%;
+}
+#patients_add button{
+	width: 90%;
+	height: 35px;
+	border: 1px #ddd solid;
+	background: #111;
+	color: #eee;
+}
+
+
+#patients_add_success{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #444;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+#patients_add_success p{
+	font-size: 2.8em;
+	text-align: center;
+	font-weight: 700;
+}
+
+#patients_add_success div{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 0;
+	right: 0;
+	border: 1px #eee solid;
+	font-size: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

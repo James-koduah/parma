@@ -34,3 +34,45 @@ function dark_light_mode(){
 		light_dark = "light"
 	}
 }
+dark_light_mode()
+
+
+function accept_appointment(id){
+	fetch('/hospital/accept_appointment/', {
+		headers : {'Content-Type' : 'application/json'},
+		method : 'POST',
+		body : JSON.stringify({'appointment_id': id})
+	})
+	.then((res)=>{return res.json()})
+	.then((json)=>{
+		console.log(json['response'])
+		if (json['response'] == 'success'){
+			document.getElementById('appointment'+id).remove();
+			window.location.reload(true)
+		}
+		count_appointments()
+	})
+}
+
+function close_appointment(id){
+	fetch('/hospital/close_appointment/', {
+		headers : {'Content-Type' : 'application/json'},
+		method : 'POST',
+		body : JSON.stringify({'appointment_id': id})
+	})
+	.then((res)=>{return res.json()})
+	.then((json)=>{
+		console.log(json['response'])
+		if (json['response'] == 'success'){
+			window.location.reload(true)
+		}
+	})
+}
+
+function count_appointments(){
+	let items = document.getElementsByClassName('appointments_item')
+	document.getElementById('appointments_num').innerText = items.length
+}
+count_appointments()
+
+

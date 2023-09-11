@@ -99,6 +99,8 @@ class Control():
             obj = self.session.query(table_name).filter_by(public_id=arg).first()
         if filter_by == 'email':
             obj = self.session.query(table_name).filter_by(email=arg).first()
+        if filter_by == 'national_id':
+            obj = self.session.query(table_name).filter_by(national_id=arg).first()
         return obj
 
     def check_admin_status(self, hospital_id, user_id):
@@ -116,6 +118,25 @@ class Control():
         objs = self.session.query(Invite_staff).filter(and_(Invite_staff.hospital_id==hospital_id, Invite_staff.status==status)).all()
         return objs
 
+    def get_appointments(self, hospital_id):
+        """Get all appointments for a hospital"""
+        objs = self.session.query(Appointment).filter(and_(Appointment.hospital_id==hospital_id, Appointment.status=='open')).all()
+        for appointment in objs:
+            patient = self.make_query('Patient', 'public_id', appointment.patient_id)
+            appointment.update(patient_name=patient.name)
+        return objs
+
+    def check_current_appointments(self, doctor_id):
+        obj = self.session.query(Appointment).filter(and_(Appointment.status=='with_doctor', Appointment.current_doctor_id==doctor_id)).first()
+        if obj:
+            patient = self.make_query('Patient', 'public_id', obj.patient_id)
+            obj.update(patient_name=patient.name)
+        return obj
+
+    def check_set_appointments(self, patient_id):
+        obj = self.session.query(Appointment).filter(and_(Appointment.status=='open', Appointment.patient_id==patient_id)).first()
+        return obj
+
     def create_token(self, length):
         """Create a random token or password
            @length: length of token or password
@@ -125,6 +146,11 @@ class Control():
         alphabet = string.ascii_letters + string.digits
         password = ''.join(secrets.choice(alphabet) for i in range(length))
         return password	
+
+    def search_patients(self, arg):
+        """search for a patient in the patients database"""
+        objs=self.session.query(Patient).filter(or_(Patient.name==arg, Patient.national_id==arg, Patient.public_id==arg)).all()
+        return objs
     
 
     def auth_token(self, token, username):
