@@ -5,23 +5,23 @@ main{
 	margin-top: 10vh;
 }
 #menu{
-	width: 29vw;
+	width: 20vw;
 	height: 90vh;
 	padding-top: 10vh;
-	padding-right: 1vw;
-	background: #ccc;
+	background: #333;
+	color: #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: end;
 }
 .menu_item{
-	width: 65%;
+	width: 100%;
 	padding-right: 5%;
 	height: 35px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	cursor: pointer;
 }
 .menu_item:hover{
@@ -29,11 +29,12 @@ main{
 	color: #eee
 }
 .menu_item p{
-	font-size: 3em;
+	font-size: 2.3em;
 	font-weight: 600;
+	text-align: right;
 }
 #dashboard{
-	width: 70vw;
+	width: 80vw;
 	height: 90vh;
 	background: #eee;
 }

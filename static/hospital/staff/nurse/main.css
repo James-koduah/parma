@@ -10,12 +10,12 @@ body{
 	align-items: center;
 }
 #nav ion-icon{
-	font-size: 8em;
+	font-size: 5em;
 	margin-right: 3vw;
 	cursor: pointer;
 }
 #nav h2{
-	font-size: 4em;
+	font-size: 3em;
 	margin-right: 3vw;
 }
 
@@ -30,7 +30,7 @@ main{
 
 
 #side_menu{
-	width: 25%;
+	width: 20%;
 	height: 90%;
 	padding-top: 2%;
 }
@@ -45,7 +45,6 @@ main{
 	justify-content: flex-end;
 	margin-bottom: 10px;
 	background: #555;
-	border-radius: 0.5vw;
 	cursor: pointer;
 }
 .side_menu_item:hover{
@@ -54,7 +53,7 @@ main{
 
 
 #dashboard{
-	width: 75%;
+	width: 80%;
 	height: 100%;
 	border: 1px #ccc solid;
 }

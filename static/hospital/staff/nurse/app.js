@@ -42,7 +42,7 @@ function set_appointment(hospital_id){
 	})
 	.then((res)=>{return res.json()})
 	.then((json)=>{
-		console.log(json['response'])
+		display_message(json['response'])
 		document.getElementById('appointments_patients_id').value=''
                 document.getElementById('illness_description').value=''
 
@@ -92,7 +92,6 @@ function search_patient(){
 	let search_string = document.getElementById('patients_searchbox').value
 	let display = document.getElementById('patients_search_results')
 	display.innerHTML = ''
-	console.log('called')
 	function patient_html(name, national_id, patient_id, contact){
 		let html=`<div class='patient_search_item'>\
 			    <div class='patient_search_item_img'></div>\
@@ -129,3 +128,15 @@ function search_patient(){
 function close_display(id){
 	let item = document.getElementById(id).style.display='none'
 }
+
+function close_hidden(e){
+	e.style.display = 'none'
+}
+function display_message(message){
+	let hidden = document.getElementById('hidden')
+	let popup_message = document.getElementById('popup_message')
+	popup_message.innerHTML = message
+	hidden.style.display='flex';
+	hidden.style.zIndex=100;
+}
+	

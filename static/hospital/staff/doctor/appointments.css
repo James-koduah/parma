@@ -46,9 +46,6 @@
 	display: flex;
 	cursor: pointer;
 }
-.appointments_item:hover{
-	background: #ddd;
-}
 
 .appointments_item_profile{
 	width: 120px;

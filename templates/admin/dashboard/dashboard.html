@@ -27,7 +27,7 @@
 			    <div class='menu_item' onclick='display_dashboard("payments",this)'><p>Payments</p></div>
 			    <div class='menu_item' onclick='display_dashboard("appointments",this)'><p>Appointments</p></div>
 			    <div class='menu_item' onclick='display_dashboard("statistics",this)'><p>Statistics</p></div>
-			    <div class='menu_item' onclick='window.location.href="/user/{{user.username}}"'><p>Your Dashboard</p></div>
+			    <div class='menu_item' onclick='window.location.href="/user/{{user.username}}"' style='background: #940202;'><p>Your Dashboard</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='register_staff'>
@@ -48,7 +48,7 @@
 					    </div>
 					    <div class='invite_form_item'>
 						    <p>Description of staff's duties</p>
-						    <input id='invite_job_description' class='input_elem' name='job_description' placeholder='Job description' required>
+						    <textarea id='invite_job_description' class='input_elem' name='job_description' placeholder='Job description' style='padding-top: 4px' required></textarea>
 					    </div>
 				    </div>
 				    <div class='separator'></div>

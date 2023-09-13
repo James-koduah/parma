@@ -6,11 +6,13 @@
 
 
 #register_staff_explanation{
-	width: 100%;
+	width: 98%;
 	padding: 2em 1vw 2em 1vw;
 	height: fit-content;
 	background: black;
 	margin-bottom:3vh;
+	color: #fff;
+	padding-left: 2%;
 }
 #register_staff_explanation p{
 	font-size: 2.5em;
@@ -50,7 +52,7 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 5px;
-	margin-left: 10%
+	margin-left: 3%
 }
 .radio_elem label{
 	font-size: 2.2em;

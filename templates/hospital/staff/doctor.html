@@ -37,7 +37,7 @@
 				    </div>
 				    <div onclick='display_dashboard("notifications", this)' class='sections_menu_item'>
 					    <p>Notifications</p>
-					    <div class='sections_menu_notification'></div>
+					    <div id='notification_num' class='sections_menu_notification'></div>
 				    </div>
 				    <div onclick='display_dashboard("prescriptions", this)' class='sections_menu_item'>
 					    <p>Prescriptions</p>
@@ -58,11 +58,12 @@
 				    </div>
 				    <div id='current_patient_details'><header>Patient's Current Illness</header><p>{{current_appointment.info}}</p></div>
 				    <div id='current_patient_history'>
+					    <ion-icon name="chevron-up-circle" id='current_patient_up' onclick='medical_history_up(this)'></ion-icon>
 					    <header>Medical History</header>
 				    </div>
 				    <button id='current_patient_complete' onclick="close_appointment('{{current_appointment.public_id}}')">Close Appointment</button>
 				    {%else%}
-				    <header>No Current Appointment</header>
+				    <header style='font-size: 2.4em'>No Patient</header>
 				    {%endif%}
 			    </div>
 			    <div class='dashboard_item' id='appointments'>

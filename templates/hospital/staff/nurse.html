@@ -72,6 +72,12 @@
 			    <div class='dashboard_item' id='help_support'></div>
 		    </div>
 	    </main>
+	    <section id='hidden' onclick='close_hidden(this)'>
+		    <div id='popup'>
+			    <p id='popup_message'></p>
+			    <header>Click to Close</header>
+		    </div>
+	    </section>
 	    <script src={{ url_for('static', filename='hospital/staff/nurse/app.js') }}></script>
     </body>
 </html>

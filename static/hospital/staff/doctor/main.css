@@ -1,6 +1,6 @@
 main{
 	width: 100vw;
-	height: 90vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -22,7 +22,7 @@ main{
 }
 
 #menu{
-	width: 70vw;
+	width: 90vw;
 	height: 100px;
 	display: flex;
 	justify-content: space-between;
@@ -30,14 +30,14 @@ main{
 }
 
 #sections_menu{
-	width: 65%;
+	width: 100%;
 	height: 30px;
 	display: flex;
 	justify-content: flex-start;
 }
 .sections_menu_item{
 	position: relative;
-	width: 25%;
+	width: 15%;
 	height: 100%;
 	background: #111;
 	color: #ccc;

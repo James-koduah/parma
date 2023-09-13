@@ -73,6 +73,26 @@ function count_appointments(){
 	let items = document.getElementsByClassName('appointments_item')
 	document.getElementById('appointments_num').innerText = items.length
 }
+function count_notifications(){
+	let items = document.getElementsByClassName('notification_item')
+	document.getElementById('notification_num').innerText = items.length
+}
 count_appointments()
+count_notifications()
 
-
+let medical_history_up_toogle = false;
+function medical_history_up(e){
+	let div = document.getElementById('current_patient_history')
+	if (medical_history_up_toogle == false){
+		div.style.top = '0'
+		div.style.height = '100%';
+		e.name='chevron-down-circle'
+		div.style.position = 'absolute'
+		medical_history_up_toogle = true;
+	}else{
+		div.style.position = 'relative'
+		div.style.height = '40%';
+		e.name='chevron-up-circle'
+		medical_history_up_toogle = false
+	}
+}
