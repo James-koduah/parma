@@ -1,55 +1,56 @@
 from  blueprints.nurse import nurse
-from flask import render_template, redirect, url_for, flash
+from flask import render_template,request, redirect, session, url_for, flash
 from __main__ import control
-from flask_login import current_user, login_requied
+from mysql_engine.doctor import Doctor
+import uuid
+from flask_sqlalchemy import SQLAlchemy
 
+from datetime import datetime
 from mysql_engine.appointment import Appointment
-from mysql_engine.patient import Patient
 
-@nurse.route('/dashboard')
-@login_required
-def dashboard():
-    current_user_id = current_user.id #this will be based on the current user logged in
-    assigned_patients = Patient.query.filter_by(nurse_id= current_user_id).all()
-    upcoming_appointments = Appointment.query.filter_by(nurse_id= current_user_id).all()
+@nurse.route('/book', methods=['get', 'post'], strict_slashes=False)
+def book_appointment():
+    if request.method == 'POST':
+        doctor = None
+        try:
+            patient_id = request.form['id']
+            description = request.form['desc']
+            doctor_id = request.form['doctor_id']  
+            appointment_time = request.form['appointment_time']
 
-    return render_template('nurse/dashboard.html', patients=assigned_patients, appointments=upcoming_appointments)
+            # Convert the appointment_time string to a datetime object
+            appointment_time = datetime.strptime(appointment_time, '%H:%M')
 
-@nurse.route('/book', methods=['POST', 'GET'])
-@login_required
+            # Fetch the doctor's information based on the doctor_id
+            doctor = control.make_query('Doctor', 'id', doctor_id)
+            public_id = str(uuid.uuid4())
+            hospital_id = 'jAvzDVFdUipE6nddiA5p'
 
-def book():
-    #Book a patient
-    form = bookForm()
+            if doctor:
+                # Create the appointment and associate it with the doctor
+                appointment = Appointment(
+                    public_id = public_id,
+                    hospital_id = hospital_id,
+                    patient_id=patient_id,
+                    appointment_time=appointment_time,
+                    doctor_id=doctor_id,
+                    status=None,
+                    description=description
+                )
 
-    if form.validate_on_submit():
-        #check if doctor is avaliable at the chosen appointment time
-        doctor = form.doctor.data
-        appointment_time = form.appointment_time.data
+                # Add the appointment to your session and commit it to the database
+                control.add_item(appointment)
+                control.commit_session()
 
-        if is_doctor_available(doctor, appointment_time):
-            #create the appointment
-            appointment = Appointment(
-                nurse_id = current_user.id,
-                patient_id = form.patient.data.id,
-                doctor = doctor.id,
-                appointment_time = appointment_time
-            )
-            # Mark the doctor as unavailable at this appointment time
-            mark_doctor_unavailable(doctor, appointment_time)
+                flash('Successfully booked patient')
+            else:
+                flash('Doctor not found')
 
-            #save the appointment and update the doctor's availability
-            control.add_item(appointment)
-            control.commit_session()
-            flash('Appointment scheduled successfully', 'success')
-            return redirect(url_for('nurse.dashboard'))
-        else:
-            flash('Selected doctor is not available at the chosen time')
-    render_template('nurse/book.html', form=form)
+        except KeyError as e:
+            flash(f'Missing form field: {str(e)}')
+        except ValueError as e:
+            flash(f'Invalid input: {str(e)}')
+        except Exception as e:
+            flash(f'An error occurred: {str(e)}')
 
-    def is_doctor_available(doctor, appointment_time):
-        existing_appointment = Appointment.query.filter_by(doctor_id=doctor.id, appointment_time=appointment_time).first()
-        return existing_appointment is None
-    def mark_doctor_unavailable(doctor, appointment_time):
-        doctor.availability.append(appointment_time)
-        control.commit_session()
+    return render_template('/hospital/staff/nurse.html')

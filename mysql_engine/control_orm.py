@@ -11,6 +11,8 @@ from mysql_engine.invite_staff import Invite_staff
 from mysql_engine.patient import Patient
 from mysql_engine.drug import Drug
 from mysql_engine.appointment import Appointment
+from mysql_engine.doctor import Doctor
+from mysql_engine.nurse import Nurse
 
 
 class Control():

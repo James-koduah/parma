@@ -23,11 +23,14 @@ from blueprints.product import product
 from blueprints.admin import admin
 from blueprints.user import user
 from blueprints.hospital import hospital
+from blueprints.nurse import nurse
 
 app.register_blueprint(product)
 app.register_blueprint(admin)
 app.register_blueprint(user)
 app.register_blueprint(hospital)
+app.register_blueprint(nurse)
+app.secret_key = 'helloThe22re1'
 
 @app.route('/')
 def welcome():
@@ -104,7 +107,7 @@ def login():
             if user == None or user.password != password:
                 return render_template('basic/error.html', message='Wrong email')
 
-        response = make_response(redirect(f'/user/{user.username}'))#change redirect to approiate route
+        response = make_response(redirect(f'/user/{user.username}'))#change redirect to appropriate route
         response.set_cookie('auth_parma', f'{user.login_token}')
         response.set_cookie('user_parma', f'{user.username}')
         return response

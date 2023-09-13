@@ -18,21 +18,25 @@
                 <a href="#">Help & Support</a>
             </div>
             <div id="book">
-                <form method="POST" action="#">
+                <form method="POST" action="{{ url_for('nurse.book_appointment') }}">
                     <!-- Patient Information -->
-                        <ul>
-                            <li>ID No.</li> <input type="text" name="id" placeholder="Enter patient's ID #" required>
-                            <li>Description</li>
-                            <textarea name="desc" rows="10" cols="50" placeholder="Short description of the patient's illness"></textarea>
-                        </ul>
-                
+                    <ul>
+                        <li>
+                            <label for="id">ID No.</label>
+                            <input type="text" name="id" id="id" placeholder="Enter patient's ID #" required>
+                        </li>
+                        <li>
+                            <label for="desc">Description</label>
+                            <textarea name="desc" id="desc" rows="10" cols="50" placeholder="Short description of the patient's illness"></textarea>
+                        </li>
+                    </ul>                    
                         <!-- Doctor Selection -->
                         <ul>
                             <li>
-                                <select name="doctors" id="available-doctors" required>
+                                <select name="doctor_id" id="available-doctors" required>
                                     <option value="" disabled selected>Doctors available</option>
-                                    <option value="doc-1">Doctor James</option>
-                                    <option value="doc-2">Doctor Farai</option>
+                                    <option value="1">Doctor James</option>
+                                    <option value="2">Doctor Farai</option>
                                 </select>
                             </li>
                         </ul>
@@ -50,6 +54,17 @@
                         </ul>
                 </form>                
             </div>        
+                                <!-- Flashed Messages -->
+                    <div class="flashes">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
         </div>
     </body>
 </html>
