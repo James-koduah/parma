@@ -118,6 +118,15 @@ class Control():
         objs = self.session.query(Invite_staff).filter(and_(Invite_staff.hospital_id==hospital_id, Invite_staff.status==status)).all()
         return objs
 
+    def get_hospital_doctors(self, hospital_id):
+        """Get all Staff invites sent by a hospital"""
+        objs = self.session.query(Hospital_staff).filter(and_(Hospital_staff.hospital_id==hospital_id, Hospital_staff.user_role=='Doctor')).all()
+        doctors=[]
+        for obj in objs:
+            doctor = self.make_query('User', 'id', obj.user_id)
+            doctors.append(doctor)
+        return doctors
+
     def get_appointments(self, hospital_id):
         """Get all appointments for a hospital"""
         objs = self.session.query(Appointment).filter(and_(Appointment.hospital_id==hospital_id, Appointment.status=='open')).all()

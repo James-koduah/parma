@@ -3,14 +3,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
 
 #current_patient_profile{
 	width: 100%;
-	height: 25%;
+	height: 20%;
 	display: flex;
-	align-items: center
+	align-items: center;
+	background: #fff;
+	margin-bottom: 2%;
 }
 #current_patient_profile_pic{
 	width: 100px;
@@ -30,12 +31,15 @@
 	font-weight: 700;
 }
 #current_patient_details{
-	width: 100%;
-	height: 34%;
-	padding-top: 1%;
+	width: 98%;
+	height: fit-content;
+	padding: 1% 0 1% 2%;
 	display: flex;
 	flex-direction: column;
 	align-items: start;
+	background: #fff;
+	border-radius: 0.5vw;
+	margin-bottom: 2%;
 }
 #current_patient header{
 	font-size: 2.3em;
@@ -50,8 +54,7 @@
 	width: 100%;
 	height: 40%;
 	padding-top: 2%;
-	background: #000;
-	color: #fff;
+	background: #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -61,17 +64,17 @@
 
 
 #current_patient_complete{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: fit-content;
-	height: 30px;
+	width: 100%;
+	background: blue;
+	color: #fff;
+	height: 40px;
+	font-weight: 700;
 }
 
 
 #current_patient_up{
 	position: absolute;
-	top: -1vh;
+	top: -2vh;
 	left: 49%;
 	font-size: 6em;
 }

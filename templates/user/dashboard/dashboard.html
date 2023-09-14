@@ -13,13 +13,14 @@
     <body>
 	    <nav>
 		    <h1 id='logo' style='cursor: pointer' onclick='window.location.reload(true)'>PARMA.</h1>
+		    <h2 style='color: #fff; font-size: 2.4em'>Dashboard</h2>
 		    <h2 id='nav_profile'>{{user.name}}</h2>
 	    </nav>
 	    <main>
 		    <div id='menu'>
 			    <div class='menu_item active' onclick='display_dashboard(this)' data-dashboard='hospitals'><p>Hospitals</p></div>
 			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='profile'><p>Profile</p></div>
-			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_invite'><p>Staff Invite</p></div>
+			    <div class='menu_item' onclick='display_dashboard(this)' data-dashboard='staff_invite'><p>Invitations</p></div>
 			    <div class='menu_item' onclick='document.getElementById("confirm_logout").style.display="flex"'><p>Logout</p></div>
 		    </div>
 		    <div id='dashboard'>
@@ -35,11 +36,11 @@
 			    <div class='dashboard_item' id='staff_invite'>
 				    {%for invite in staff_invites%}
 				    <div onclick='window.location.href="/hospital/{{invite.hospital_id}}/invite/{{invite.public_id}}"' class='staff_invite'>
+					    <div class='invite_hospital_img'></div>
 					    <header>From: {{invite.hospital_name}}</header>
 					    <p>For the role of a {{invite.role}}</p>
 					    <p><strong>Job Description</strong></p>
 					    <p>{{invite.description}}</p>
-					    <p><strong>Status</strong>: {{invite.status}}</p>
 				    </div>
 				    {%endfor%}
 			    </div>

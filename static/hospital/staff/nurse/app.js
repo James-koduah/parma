@@ -140,3 +140,9 @@ function display_message(message){
 	hidden.style.zIndex=100;
 }
 	
+
+document.getElementById('patients_searchbox').addEventListener('keydown', (e)=>{
+	if (e.keyCode == 13){
+		search_patient()
+	}
+})

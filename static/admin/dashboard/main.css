@@ -2,31 +2,32 @@ main{
 	width: 100vw;
 	height: fit-content;
 	display: flex;
+	flex-direction: column;
 	margin-top: 10vh;
 }
 #menu{
-	width: 20vw;
-	height: 90vh;
-	padding-top: 10vh;
-	background: #333;
-	color: #fff;
+	width: 96vw;
+	height: 70px;
+	padding: 2vh 2vw 2vh 2vw;
+	border-bottom: 1px #444 solid;
 	display: flex;
-	flex-direction: column;
-	align-items: end;
+	overflow-x: auto;
 }
 .menu_item{
-	width: 100%;
-	padding-right: 5%;
-	height: 35px;
+	width: 150px;
+	height: 90%;
+	flex-shrink: 0;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-	margin-bottom: 15px;
+	justify-content: center;
 	cursor: pointer;
+	border-radius: 1vw;
+	background: #ddd;
+	margin-right: 2vw;
 }
 .menu_item:hover{
-	background: #444;
-	color: #eee
+	background: #00b7ff;
+	color: #eee;
 }
 .menu_item p{
 	font-size: 2.3em;
@@ -34,7 +35,7 @@ main{
 	text-align: right;
 }
 #dashboard{
-	width: 80vw;
+	width: 100vw;
 	height: 90vh;
 	background: #eee;
 }
@@ -42,9 +43,10 @@ main{
 	width: 100%;
 	height: 100%;
 	display: none;
-	overflow-y: auto;
+	padding-bottom: 5vh;
 }
+
 .active{
-	background: #eee;
-	color: #222;
+	background: blue;
+	color: #fff;
 }

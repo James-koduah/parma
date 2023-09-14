@@ -34,5 +34,7 @@ def hospital_work(hospital_id, user_id):
         current_appointment = control.check_current_appointments(user.public_id)
         return render_template('hospital/staff/doctor.html', user=staff, hospital=hospital, appointments=appointments, current_appointment=current_appointment)
     if staff.role == 'Nurse':
-        return render_template('hospital/staff/nurse.html', user=staff, hospital=hospital)
+        doctors = control.get_hospital_doctors(hospital.id)
+        print(doctors)
+        return render_template('hospital/staff/nurse.html', user=staff, hospital=hospital, doctors=doctors)
     return render_template('basic/error.html', message='Error, cannot process user data, notification sent to team')

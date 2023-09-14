@@ -22,7 +22,7 @@
 	    </div>
 	    <main>
 		    <div id='side_menu'>
-			    <div onclick='display_dashboard("appointments", this)' class='side_menu_item active'>Book an Appointment</div>
+			    <div onclick='display_dashboard("appointments", this)' class='side_menu_item active'>Patients waiting list</div>
 			    <div onclick='display_dashboard("tasks", this)' class='side_menu_item'>Task List</div>
 			    <div onclick='display_dashboard("patients", this)' class='side_menu_item'>Patients Database</div>
 			    <div onclick='display_dashboard("notifications", this)' class='side_menu_item'>Notifications</div>
@@ -31,6 +31,7 @@
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='appointments'>
 				    <div id='appointments_form'>
+				    	    <header>Add Patient To Waiting List</header>
 					    <div class='appointments_form_item'>
 						    <p>Patients ID</p>
 						    <input id='appointments_patients_id' placeholder='Enter Patients ID#'>
@@ -40,16 +41,24 @@
 						    <textarea id='illness_description' placeholder='Short description about patiens illness'></textarea>
 					    </div>
 					    <div class='appointments_form_item'>
-						    <div id='appointments_doctor_display'></div>
-						    <div id='appointments_doctor' onclick='appointments_doctor_display()'><p>Available Doctors</p><div>></div></div>
-					    </div>
-					    <div class='appointments_form_item'>
-						    <button onclick="set_appointment('{{hospital.public_id}}')">Book</button>
+						    <button onclick="set_appointment('{{hospital.public_id}}')">Book For Waiting List</button>
 					    </div>
 				    </div>
 				    <div id='appointments_timeslot'>
+					    <header>Book An Appointment</header>
 					    <p>Appointment Time</p>
-					    <input id='appointment_time' maxlength='4'>
+					    <input type='time' id='appointment_time'>
+					    <div class='appointments_form_item'>
+						    <div id='appointments_doctor_display'>
+							    {%for doctor in doctors%}
+							    <div class='appointments_doctors_item'>{{doctor.name}}</div>
+							    {%endfor%}
+						    </div>
+						    <div id='appointments_doctor' onclick='appointments_doctor_display()'><p>Available Doctors</p><div>></div></div>
+					    </div>
+					    <div class='appointments_form_item'>
+						    <button onclick="set_appointment('{{hospital.public_id}}')">Set An Appointment</button>
+					    </div>
 				    </div>
 			    </div>
 			    <div class='dashboard_item' id='tasks'></div>

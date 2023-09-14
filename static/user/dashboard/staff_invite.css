@@ -1,23 +1,31 @@
 #staff_invite{
-	justify-content: center;
 	flex-wrap: wrap;
 	padding-top: 4vh;
+	padding-left: 2vw;
 }
 
 .staff_invite{
-	width: 90%;
+	width: 350px;
 	height: fit-content;
-	background: #ddd;
-	color: #222;
-	border: 1px gray solid;
-	padding: 5px 3% 5px 3%;
+	background: #1a4cc3;
+	color: #fff;
+	border-radius: 1vw;
 	cursor: pointer;
 	margin-bottom: 30px;
+	padding-bottom: 10px
+}
+.staff_invite div{
+	width: 100%;
+	height: 130px;
+	background: #ddd;
+	margin-bottom: 10px
 }
 .staff_invite header{
 	font-size: 2.5em;
 	font-weight: 700;
+	margin-left: 2%;
 }
 .staff_invite p{
 	font-size: 2.5em;
+	margin-left: 2%;
 }

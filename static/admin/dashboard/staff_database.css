@@ -2,6 +2,7 @@
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	padding: 4vh 2vw 4vh 2vw;
+	height: fit-content;
 }
 .hospital_staff{
 	width: 230px;
@@ -11,6 +12,7 @@
 	overflow: hidden;
 	margin-left: 5%;
 	cursor: pointer;
+	margin-bottom: 3vh;
 }
 .hospital_staff_image{
 	width: 100%;

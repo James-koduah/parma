@@ -1,52 +1,58 @@
+body{
+	background: #ccccff
+}
 main{
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 0vh;
 }
 
 #nav{
 	width: 95vw;
-	height: 50px;
+	height: 20px;
 	position: fixed;
-	top: 3vh;
+	top: 2vh;
 	left: 2.5vw;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 #nav ion-icon{
-	font-size: 40px;
+	font-size: 20px;
 	cursor: pointer;
+	margin-left: 2vw;
 }
 
 #menu{
-	width: 90vw;
-	height: 100px;
+	width: 200px;
+	height: 100vh;
 	display: flex;
-	justify-content: space-between;
-	align-items: end;
+	flex-direction: column;
+	padding-right: 0.5vw;
 }
 
 #sections_menu{
 	width: 100%;
-	height: 30px;
+	height: 100%;
 	display: flex;
-	justify-content: flex-start;
+	flex-direction: column;
+	align-items: end;
 }
 .sections_menu_item{
 	position: relative;
-	width: 15%;
-	height: 100%;
-	background: #111;
-	color: #ccc;
-	border-top-right-radius: 40%;
-	border: 1px #111 solid;
+	width: 90%;
+	height: 70px;
+	background: #fff;
+	color: #000;
+	/*
+	border-top-left-radius: 1vw;
+	border-bottom-left-radius: 1vw;
+	*/
+	border-radius: 1vw;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 5px;
 }
 .sections_menu_item:hover{
 	background: #444;
@@ -62,8 +68,8 @@ main{
 	background: red;
 	color: #fff;
 	border-radius: 50%;
-	top: 0;
-	right: 0;
+	top: 50%;
+	right: 5%;
 	margin-top: -9px;
 	font-size: 13px;
 	display: flex;
@@ -82,8 +88,8 @@ main{
 	font-weight: 700;
 }
 .active{
-	background: #ccc;
-	color: #111;
+	background: blue;
+	color: #fff;
 }
 
 

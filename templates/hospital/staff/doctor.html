@@ -43,7 +43,6 @@
 					    <p>Prescriptions</p>
 				    </div>
 			    </div>
-			    <div id='menu_profile'>Dr. {{user.name}}</div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='current_patient'>
@@ -61,7 +60,7 @@
 					    <ion-icon name="chevron-up-circle" id='current_patient_up' onclick='medical_history_up(this)'></ion-icon>
 					    <header>Medical History</header>
 				    </div>
-				    <button id='current_patient_complete' onclick="close_appointment('{{current_appointment.public_id}}')">Close Appointment</button>
+				    <button id='current_patient_complete' onclick="close_appointment('{{current_appointment.public_id}}')">Close Session</button>
 				    {%else%}
 				    <header style='font-size: 2.4em'>No Patient</header>
 				    {%endif%}

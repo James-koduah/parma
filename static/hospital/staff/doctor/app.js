@@ -34,7 +34,6 @@ function dark_light_mode(){
 		light_dark = "light"
 	}
 }
-dark_light_mode()
 
 
 function accept_appointment(id){
