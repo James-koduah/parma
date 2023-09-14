@@ -87,12 +87,13 @@
 	width: 100%;
 	height: fit-content;
 	padding: 10px 0 10px 0;
-	background: #4c4;
+	background: #00b7ff;
+	font-weight: 700;
 	text-align: center;
 	cursor: pointer;
 }
 .generate_link:hover{
-	background: #4d4;
+	background: blue;
 }
 
 #invite_channel{

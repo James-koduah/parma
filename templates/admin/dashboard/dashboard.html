@@ -19,15 +19,15 @@
 	    </nav>
 	    <main>
 		    <div id='menu'>
-			    <div class='menu_item active' onclick='display_dashboard("register_staff",this)'><p>Register/Invite Staff</p></div>
-			    <div class='menu_item' onclick='display_dashboard("pending_staff_invites",this)'><p>Pending Staff Invites</p></div>
-			    <div class='menu_item' onclick='display_dashboard("confirm_staff",this)'><p>Confirm Staff</p></div>
-			    <div class='menu_item' onclick='display_dashboard("staff_database",this)'><p>Staff Database</p></div>
-			    <div class='menu_item' onclick='display_dashboard("patients_database",this)'><p>Patients Database</p></div>
-			    <div class='menu_item' onclick='display_dashboard("payments",this)'><p>Payments</p></div>
-			    <div class='menu_item' onclick='display_dashboard("appointments",this)'><p>Appointments</p></div>
-			    <div class='menu_item' onclick='display_dashboard("statistics",this)'><p>Statistics</p></div>
-			    <div class='menu_item' onclick='window.location.href="/user/{{user.username}}"' style='background: #940202;'><p>Your Dashboard</p></div>
+			    <div class='menu_item active' onclick='display_dashboard("register_staff",this)'><ion-icon name="pencil"></ion-icon><p>Register/Invite Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard("pending_staff_invites",this)'><ion-icon name="mail-open"></ion-icon><p>Pending Staff Invites</p></div>
+			    <div class='menu_item' onclick='display_dashboard("confirm_staff",this)'><ion-icon name="checkmark-done-circle"></ion-icon><p>Confirm Staff</p></div>
+			    <div class='menu_item' onclick='display_dashboard("staff_database",this)'><ion-icon name="server-outline"></ion-icon><p>Staff Database</p></div>
+			    <div class='menu_item' onclick='display_dashboard("patients_database",this)'><ion-icon name="server-outline"></ion-icon><p>Patients Database</p></div>
+			    <div class='menu_item' onclick='display_dashboard("payments",this)'><ion-icon name="cash"></ion-icon><p>Payments</p></div>
+			    <div class='menu_item' onclick='display_dashboard("appointments",this)'><ion-icon name="bag-check"></ion-icon><p>Appointments</p></div>
+			    <div class='menu_item' onclick='display_dashboard("statistics",this)'><ion-icon name="stats-chart"></ion-icon><p>Statistics</p></div>
+			    <div class='menu_item' onclick='window.location.href="/user/{{user.username}}"' style='background: #940202; color: #fff'><ion-icon name="exit"></ion-icon><p>Your Dashboard</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='register_staff'>
@@ -65,6 +65,7 @@
 				    </div>
 			    </div>
 			    <div class='dashboard_item' id='pending_staff_invites'>
+				    {%if pending_invites%}
 				    {%for invite in pending_invites%}
 				    <div class='confirm_staff'>
 					    <p>This invite was sent to <strong>{{invite.user_name}}</strong></p>
@@ -74,8 +75,12 @@
 					    <p class='confirm_staff_more'>click for more details</p>
 				    </div>
 				    {%endfor%}
+				    {%else%}
+				    <div class='dashboard_empty'><p>No Pending Invitations</p></div>
+				    {%endif%}
 			    </div>
 			    <div class='dashboard_item' id='confirm_staff'>
+				    {%if confirm_invites%}
 				    {%for invite in confirm_invites%}
 				    <div class='confirm_staff'>
 					    <p>This invite was sent to <strong>{{invite.user_name}}</strong></p>
@@ -86,6 +91,9 @@
 					    <button onclick='confirm_staff("{{invite.public_id}}")'>Confirm Staff</button>
 				    </div>
 				    {%endfor%}
+				    {%else%}
+				    <div class='dashboard_empty'><p>No Invites To Confirm</p></div>
+				    {%endif%}
 			    </div>
 			    <div class='dashboard_item' id='staff_database'>
 				    {%for staff in hospital.staff%}
@@ -97,10 +105,10 @@
 				    </div>
 				    {%endfor%}
 			    </div>
-			    <div class='dashboard_item' id='patients_database'></div>
-			    <div class='dashboard_item' id='payments'></div>
-			    <div class='dashboard_item' id='appointments'></div>
-			    <div class='dashboard_item' id='statistics'></div>
+			    <div class='dashboard_item' id='patients_database'><div class='dashboard_empty'><p>This Page Has Not Yet Been Developed</p></div></div>
+			    <div class='dashboard_item' id='payments'><div class='dashboard_empty'><p>This Page Has Not Yet Been Developed</p></div></div>
+			    <div class='dashboard_item' id='appointments'><div class='dashboard_empty'><p>This Page Has Not Yet Been Developed</p></div></div>
+			    <div class='dashboard_item' id='statistics'><div class='dashboard_empty'><p>This Page Has Not Yet Been Developed</p></div></div>
 		    </div>
 	    </main>
 	    <section>

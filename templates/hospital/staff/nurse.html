@@ -22,11 +22,11 @@
 	    </div>
 	    <main>
 		    <div id='side_menu'>
-			    <div onclick='display_dashboard("appointments", this)' class='side_menu_item active'>Patients waiting list</div>
-			    <div onclick='display_dashboard("tasks", this)' class='side_menu_item'>Task List</div>
-			    <div onclick='display_dashboard("patients", this)' class='side_menu_item'>Patients Database</div>
-			    <div onclick='display_dashboard("notifications", this)' class='side_menu_item'>Notifications</div>
-			    <div onclick='display_dashboard("help_support", this)' class='side_menu_item'>Help & Support</div>
+			    <div onclick='display_dashboard("appointments", this)' class='side_menu_item active'><ion-icon name="git-network"></ion-icon><p>Patients waiting list</p></div>
+			    <div onclick='display_dashboard("tasks", this)' class='side_menu_item'><ion-icon name="briefcase-outline"></ion-icon><p>Task List</p></div>
+			    <div onclick='display_dashboard("patients", this)' class='side_menu_item'><ion-icon name="server-outline"></ion-icon><p>Patients Database</p></div>
+			    <div onclick='display_dashboard("notifications", this)' class='side_menu_item'><ion-icon name="alert-circle-outline"></ion-icon><p>Notifications</p></div>
+			    <div onclick='display_dashboard("help_support", this)' class='side_menu_item'><ion-icon name="help-circle-outline"></ion-icon><p>Help & Support</p></div>
 		    </div>
 		    <div id='dashboard'>
 			    <div class='dashboard_item' id='appointments'>
@@ -69,6 +69,7 @@
 				    </div>
 				    <div id='patients_search_results'></div>
 				    <div id='patients_add'>
+					    <header>Add New Patient To DataBase</header>
 					    <div id='patients_add_success'><div onclick='close_display("patients_add_success")'>X</div><p id='patients_add_success_message'></p></div>
 					    <div class='patients_add_item'><p>Patient's Name</p><input id='patients_add_name' placeholder='Patients Name'></div>
 					    <div class='patients_add_item'><p>Patient's National ID</p><input id='patients_add_national_id' placeholder='Patients National ID#'></div>

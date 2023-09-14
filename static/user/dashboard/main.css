@@ -32,6 +32,10 @@ main{
 	font-weight: 600;
 	text-align: right;
 }
+.menu_item ion-icon{
+	font-size: 4em;
+	margin-right: 10px;
+}
 #dashboard{
 	width: 100vw;
 	min-height: 90vh;

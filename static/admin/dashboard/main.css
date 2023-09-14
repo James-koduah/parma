@@ -18,6 +18,7 @@ main{
 	height: 90%;
 	flex-shrink: 0;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
@@ -34,16 +35,30 @@ main{
 	font-weight: 600;
 	text-align: right;
 }
+.menu_item ion-icon{
+	font-size: 4em;
+}
 #dashboard{
 	width: 100vw;
 	height: 90vh;
-	background: #eee;
+	background: #ccccff;
 }
 .dashboard_item{
 	width: 100%;
 	height: 100%;
 	display: none;
 	padding-bottom: 5vh;
+}
+
+.dashboard_empty{
+	width: 100%;
+	height: 70%;
+	padding-top: 10%;
+	display: flex;
+	justify-content: center;
+	font-size: 2.4em;
+	color: #000;
+	font-weight: 700;
 }
 
 .active{
